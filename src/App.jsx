@@ -3,9 +3,12 @@ import { AuthProvider } from "./auth/context/AuthProvider";
 import { AppRouter } from "./router/appRouter";
 
 function App() {
+
+  const jugadoresSelect = ['1','1','1','1','1']
+
   return (
     <AuthProvider>
-      <AppRouter />
+      <AppRouter jugadoresSelect={jugadoresSelect}/>
     </AuthProvider>
   );
 }

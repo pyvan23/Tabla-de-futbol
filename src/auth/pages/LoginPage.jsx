@@ -10,7 +10,7 @@ export const LoginPage = () => {
 
   const onLogin = () => {
     login('Ivan');
-    navigate("/", { replace: true });
+    navigate("/Tabla", { replace: true });
   };
 
   const containerStyle = {

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
-import { Armado } from "../pages/Armado"
 import { Tabla } from "../pages/Tabla"
 import { LoginPage } from "../auth/pages/LoginPage"
+import { Armado } from "../pages/armado"
 
 
 export const AppRouter = () => {
