@@ -1,11 +1,19 @@
 
-import React, { useState } from 'react'
+import  { useState } from 'react'
 
 export const Jugadores = () => {
 
     const jugadoresObjeto = [
         { id: 1, nombre: 'NICO', ptos: 0, asistencia: 0, ganados: 0 },
         { id: 2, nombre: 'LUCAS', ptos: 3, asistencia: 2, ganados: 1 },
+        { id: 3, nombre: 'IVO', ptos: 0, asistencia: 0, ganados: 0 },
+        { id: 3, nombre: 'MARCELO', ptos: 0, asistencia: 0, ganados: 0 },
+        { id: 3, nombre: 'RULO', ptos: 0, asistencia: 0, ganados: 0 },
+        { id: 3, nombre: 'CHICHI', ptos: 0, asistencia: 0, ganados: 0 },
+        { id: 3, nombre: 'GONZALO', ptos: 0, asistencia: 0, ganados: 0 },
+        { id: 3, nombre: 'TOMATE', ptos: 0, asistencia: 0, ganados: 0 },
+        { id: 3, nombre: 'ANDY', ptos: 0, asistencia: 0, ganados: 0 },
+        { id: 3, nombre: 'ANDY', ptos: 0, asistencia: 0, ganados: 0 },
         { id: 3, nombre: 'ANDY', ptos: 0, asistencia: 0, ganados: 0 },
     ]
 
