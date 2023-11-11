@@ -6,9 +6,10 @@ export const Tabla = () => {
   const [jugadores, setJugadores] = useState([]);
 
   useEffect(() => {
-    
-    const jugadoresCargados = [""]; // Reemplaza esto con los datos reales
-    setJugadores(jugadoresCargados);
+    fetch(' /jugadores.json') // Asegúrate de que la ruta sea correcta
+      .then(response => response.json())
+      .then(data => setJugadores(data))
+      .catch(error => console.error('Error al cargar los jugadores:', error));
   }, []);
 
   return (
@@ -25,7 +26,7 @@ export const Tabla = () => {
             <th>% ASISTENCIA</th>
           </tr>
         </thead>
-        <Jugadores />
+        <Jugadores jugadores={jugadores}/>
       </table>
     </>
   );

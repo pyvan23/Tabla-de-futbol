@@ -1,9 +1,8 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 
 
-export const Jugadores = () => {
-  
-  const [jugadores, setJugadores] = useState([]);
+export const Jugadores =  ( { jugadores } ) => {
+
 
   const calcularPorcentaje = (valor, total) => {
     if (total > 0) {
