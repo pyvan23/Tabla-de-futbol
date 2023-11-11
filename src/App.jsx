@@ -4,11 +4,11 @@ import { AppRouter } from "./router/appRouter";
 
 function App() {
 
-  const jugadoresSelect = ['1','1','1','1','1']
+  
 
   return (
     <AuthProvider>
-      <AppRouter jugadoresSelect={jugadoresSelect}/>
+      <AppRouter />
     </AuthProvider>
   );
 }
