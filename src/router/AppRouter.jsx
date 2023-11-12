@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
-import { Tabla } from "../pages/Tabla"
+import { TablaScreen } from "../pages/TablaScreen"
 import { LoginPage } from "../auth/pages/LoginPage"
+import { AdminScreen } from "../pages/AdminScreen"
 
 
 
@@ -11,7 +12,8 @@ export const AppRouter = () => {
     <>
      <Routes>
           <Route path="/" element={<LoginPage />} />
-          <Route path="/Tabla" element={<Tabla />} />
+          <Route path="/Tabla" element={<TablaScreen />} />
+          <Route path="/Admin" element={<AdminScreen />} />
         </Routes>
     </>
   )

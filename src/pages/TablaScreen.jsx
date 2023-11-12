@@ -1,6 +1,7 @@
 import  { useState, useEffect } from 'react';
 import { Jugadores } from "../components/Jugadores";
 import { Header } from '../components/Header';
+import { AdminScreen } from './AdminScreen';
 
 
 export const Tabla = () => {
@@ -30,6 +31,7 @@ export const Tabla = () => {
           </tr>
         </thead>
         <Jugadores jugadores={jugadores}/>
+        <AdminScreen jugadores={jugadores}/>
       </table>
     </>
   );
