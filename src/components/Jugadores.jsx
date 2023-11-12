@@ -3,8 +3,7 @@
 
 export const Jugadores =  ( { jugadores } ) => {
 
-
-  const calcularPorcentaje = (valor, total) => {
+    const calcularPorcentaje = (valor, total) => {
     if (total > 0) {
       return ((valor / total) * 100).toFixed(2) + "%";
     }

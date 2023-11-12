@@ -50,7 +50,7 @@ export const LoginPage = () => {
 
   const iconStyle = {
     margin: '0 10px',
-    cursor: 'pointer', // Agrega un cursor pointer para darle una mejor indicación al usuario de que puede hacer clic
+    cursor: 'pointer', 
   };
 
   return (
