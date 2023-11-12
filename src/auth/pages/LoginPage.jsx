@@ -40,22 +40,28 @@ export const LoginPage = () => {
   const buttonStyle = {
     padding: '10px 20px',
     width: '100%',
+    
   };
 
   const socialLoginStyle = {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: '20px',
+    marginTop: '50px',
+   
+    
+    
   };
 
   const iconStyle = {
     margin: '0 10px',
     cursor: 'pointer', 
+    
+    
   };
 
   return (
     <div style={containerStyle} className="container mt-5">
-      <h1>Login</h1>
+      <h1 style={{font:'small-caption', fontSize:'20px'}}>Tabla Futbol temporada 2023</h1>
       <hr />
       <div style={formStyle}>
         <input type="email" placeholder="Email" style={inputStyle} className="form-control m-3" />
@@ -63,10 +69,11 @@ export const LoginPage = () => {
         <button className="btn btn-primary" onClick={onLogin} style={buttonStyle}>
           Login
         </button>
-        <div style={socialLoginStyle}>
-          <FontAwesomeIcon icon={faGoogle} style={iconStyle} />
-          <FontAwesomeIcon icon={faApple} style={iconStyle} />
-          <FontAwesomeIcon icon={faFacebookF} style={iconStyle} />
+      
+      <div style={socialLoginStyle}>
+           <FontAwesomeIcon icon={faGoogle}  className="icono-mas-grande" style={iconStyle}  /> 
+          <FontAwesomeIcon icon={faFacebookF}  className="icono-mas-grande"style={iconStyle} />
+          <FontAwesomeIcon icon={faApple}   className="icono-mas-grande"style={iconStyle} />
         </div>
       </div>
     </div>

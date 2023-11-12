@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 <nav>
   {/* Agregar enlaces para la navegación */}
   <Link to="/">Inicio</Link> 
-  <Link to="/Armado">Armado</Link>
+
   <Link to="/Tabla">Tabla</Link>
 </nav>
 <div className="login-container">

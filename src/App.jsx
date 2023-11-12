@@ -4,9 +4,7 @@ import { AppRouter } from "./router/appRouter";
 
 function App() {
 
-  
-
-  return (
+    return (
     <AuthProvider>
       <AppRouter />
     </AuthProvider>
