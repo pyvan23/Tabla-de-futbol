@@ -1,5 +1,6 @@
 import  { useState, useEffect } from 'react';
 import { Jugadores } from "../components/Jugadores";
+import { Header } from '../components/Header';
 
 
 export const Tabla = () => {
@@ -15,6 +16,7 @@ export const Tabla = () => {
 
   return (
     <>
+     <Header/>
       <h1>2023</h1>
       <table>
         <thead>

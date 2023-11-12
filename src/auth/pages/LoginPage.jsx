@@ -1,8 +1,11 @@
+/* eslint-disable react/prop-types */
 import  { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faApple, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+
+
 
 export const LoginPage = () => {
   const { login } = useContext(AuthContext);
@@ -61,7 +64,7 @@ export const LoginPage = () => {
 
   return (
     <div style={containerStyle} className="container mt-5">
-      <h1 style={{font:'small-caption', fontSize:'20px'}}>Tabla Futbol temporada 2023</h1>
+      <h1 style={{font:'small-caption', fontSize:'20px'}}>Futbol temporada 2023</h1>
       <hr />
       <div style={formStyle}>
         <input type="email" placeholder="Email" style={inputStyle} className="form-control m-3" />
