@@ -47,7 +47,7 @@ export const SelectJugadores = ({ jugadores }) => {
           {equipoBlanco.map(jugador => (
             <div key={jugador}>
               {jugador}
-              <button  className='remove-button ' onClick={() => quitarJugador(jugador, 'blanco')}>Quitar</button>
+              <button  className='remove-button' onClick={() => quitarJugador(jugador, 'blanco')}>Quitar</button>
             </div>
           ))}
         </div>

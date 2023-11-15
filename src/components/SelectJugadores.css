@@ -19,6 +19,13 @@ body {
     color: #333;
     text-align: center;
   }
+  .player-item {
+    display: flex;
+    justify-content: space-between; /* Separa el nombre y el botón */
+    align-items: center;
+    width: 100%; /* Asegúrate de que ocupan todo el ancho disponible */
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+  }
   
   /* Estilo para las secciones de cada equipo */
   .team-section {
@@ -47,12 +54,9 @@ body {
   
   /* Estilo para las listas desplegables */
   select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #fff;
+    width: 100%; 
+    max-height: 150px; /* Limita la altura máxima */
+    overflow-y: auto; /* Permite hacer scroll dentro de la lista si es necesario */
   }
   
   /* Estilo para los botones */
@@ -91,11 +95,8 @@ body {
   
   /* Estilo para los botones de quitar */
   .remove-button {
-    padding: 4px 8px;
-    background-color: #dc3545;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
+    padding: 5px 10px; /* Tamaño más pequeño para los botones */
+    margin-left: 10px; /* Espacio entre el nombre del jugador y el botón */
   }
   
   .remove-button:hover {
