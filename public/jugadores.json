@@ -34,6 +34,42 @@
       "ganados": 7,
       "efectividad": 0.60,
       "porcentajeAsistencia": 0.65
+    },
+    {
+      "id": 5,
+      "nombre": "Juan Pérez",
+      "puntos": 30,
+      "asistencias": 5,
+      "ganados": 10,
+      "efectividad": 0.75,
+      "porcentajeAsistencia": 0.6
+    },
+    {
+      "id": 6,
+      "nombre": "Laura García",
+      "puntos": 25,
+      "asistencias": 7,
+      "ganados": 8,
+      "efectividad": 0.65,
+      "porcentajeAsistencia": 0.7
+    },
+    {
+      "id": 7,
+      "nombre": "Carlos López",
+      "puntos": 15,
+      "asistencias": 9,
+      "ganados": 5,
+      "efectividad": 0.50,
+      "porcentajeAsistencia": 0.8
+    },
+    {
+      "id": 8,
+      "nombre": "Ana Torres",
+      "puntos": 20,
+      "asistencias": 6,
+      "ganados": 7,
+      "efectividad": 0.60,
+      "porcentajeAsistencia": 0.65
     }
   ]
   
