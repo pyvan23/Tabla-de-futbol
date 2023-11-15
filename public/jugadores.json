@@ -1,75 +1,182 @@
 [
-    {
-      "id": 1,
-      "nombre": "Juan Pérez",
-      "puntos": 30,
-      "asistencias": 5,
-      "ganados": 10,
-      "efectividad": 0.75,
-      "porcentajeAsistencia": 0.6
-    },
-    {
-      "id": 2,
-      "nombre": "Laura García",
-      "puntos": 25,
-      "asistencias": 7,
-      "ganados": 8,
-      "efectividad": 0.65,
-      "porcentajeAsistencia": 0.7
-    },
-    {
-      "id": 3,
-      "nombre": "Carlos López",
-      "puntos": 15,
-      "asistencias": 9,
-      "ganados": 5,
-      "efectividad": 0.50,
-      "porcentajeAsistencia": 0.8
-    },
-    {
-      "id": 4,
-      "nombre": "Ana Torres",
-      "puntos": 20,
-      "asistencias": 6,
-      "ganados": 7,
-      "efectividad": 0.60,
-      "porcentajeAsistencia": 0.65
-    },
-    {
-      "id": 5,
-      "nombre": "Juan Pérez",
-      "puntos": 30,
-      "asistencias": 5,
-      "ganados": 10,
-      "efectividad": 0.75,
-      "porcentajeAsistencia": 0.6
-    },
-    {
-      "id": 6,
-      "nombre": "Laura García",
-      "puntos": 25,
-      "asistencias": 7,
-      "ganados": 8,
-      "efectividad": 0.65,
-      "porcentajeAsistencia": 0.7
-    },
-    {
-      "id": 7,
-      "nombre": "Carlos López",
-      "puntos": 15,
-      "asistencias": 9,
-      "ganados": 5,
-      "efectividad": 0.50,
-      "porcentajeAsistencia": 0.8
-    },
-    {
-      "id": 8,
-      "nombre": "Ana Torres",
-      "puntos": 20,
-      "asistencias": 6,
-      "ganados": 7,
-      "efectividad": 0.60,
-      "porcentajeAsistencia": 0.65
-    }
-  ]
-  
+  {
+    "id": 1,
+    "nombre": "Juan Pérez",
+    "puntos": 30,
+    "asistencias": 5,
+    "ganados": 10,
+    "efectividad": 0.75,
+    "porcentajeAsistencia": 0.6
+  },
+  {
+    "id": 2,
+    "nombre": "Laura García",
+    "puntos": 25,
+    "asistencias": 7,
+    "ganados": 8,
+    "efectividad": 0.65,
+    "porcentajeAsistencia": 0.7
+  },
+  {
+    "id": 3,
+    "nombre": "Carlos López",
+    "puntos": 15,
+    "asistencias": 9,
+    "ganados": 5,
+    "efectividad": 0.50,
+    "porcentajeAsistencia": 0.8
+  },
+  {
+    "id": 4,
+    "nombre": "Ana Torres",
+    "puntos": 20,
+    "asistencias": 6,
+    "ganados": 7,
+    "efectividad": 0.60,
+    "porcentajeAsistencia": 0.65
+  },
+  {
+    "id": 5,
+    "nombre": "Juan Pérez",
+    "puntos": 30,
+    "asistencias": 5,
+    "ganados": 10,
+    "efectividad": 0.75,
+    "porcentajeAsistencia": 0.6
+  },
+  {
+    "id": 6,
+    "nombre": "Laura García",
+    "puntos": 25,
+    "asistencias": 7,
+    "ganados": 8,
+    "efectividad": 0.65,
+    "porcentajeAsistencia": 0.7
+  },
+  {
+    "id": 7,
+    "nombre": "Carlos López",
+    "puntos": 15,
+    "asistencias": 9,
+    "ganados": 5,
+    "efectividad": 0.50,
+    "porcentajeAsistencia": 0.8
+  },
+  {
+    "id": 8,
+    "nombre": "Ana Torres",
+    "puntos": 20,
+    "asistencias": 6,
+    "ganados": 7,
+    "efectividad": 0.60,
+    "porcentajeAsistencia": 0.65
+  },
+  {
+    "id": 9,
+    "nombre": "Elena Nito",
+    "puntos": 18,
+    "asistencias": 4,
+    "ganados": 6,
+    "efectividad": 0.55,
+    "porcentajeAsistencia": 0.5
+  },
+  {
+    "id": 10,
+    "nombre": "Marco Reus",
+    "puntos": 22,
+    "asistencias": 6,
+    "ganados": 9,
+    "efectividad": 0.70,
+    "porcentajeAsistencia": 0.75
+  },
+  {
+    "id": 11,
+    "nombre": "Sofía Loren",
+    "puntos": 20,
+    "asistencias": 8,
+    "ganados": 11,
+    "efectividad": 0.80,
+    "porcentajeAsistencia": 0.85
+  },
+  {
+    "id": 12,
+    "nombre": "Lucas Martínez",
+    "puntos": 16,
+    "asistencias": 5,
+    "ganados": 4,
+    "efectividad": 0.50,
+    "porcentajeAsistencia": 0.6
+  },
+  {
+    "id": 13,
+    "nombre": "Marta Vidal",
+    "puntos": 19,
+    "asistencias": 4,
+    "ganados": 7,
+    "efectividad": 0.58,
+    "porcentajeAsistencia": 0.6
+  },
+  {
+    "id": 14,
+    "nombre": "Pablo Escobar",
+    "puntos": 23,
+    "asistencias": 7,
+    "ganados": 9,
+    "efectividad": 0.70,
+    "porcentajeAsistencia": 0.77
+  },
+  {
+    "id": 15,
+    "nombre": "Carmen Lomana",
+    "puntos": 17,
+    "asistencias": 6,
+    "ganados": 5,
+    "efectividad": 0.52,
+    "porcentajeAsistencia": 0.68
+  },
+  {
+    "id": 16,
+    "nombre": "Diego Maradona",
+    "puntos": 21,
+    "asistencias": 8,
+    "ganados": 10,
+    "efectividad": 0.75,
+    "porcentajeAsistencia": 0.80
+  },
+  {
+    "id": 17,
+    "nombre": "Isabel Pantoja",
+    "puntos": 22,
+    "asistencias": 5,
+    "ganados": 6,
+    "efectividad": 0.57,
+    "porcentajeAsistencia": 0.63
+  },
+  {
+    "id": 18,
+    "nombre": "Antonio Banderas",
+    "puntos": 24,
+    "asistencias": 6,
+    "ganados": 8,
+    "efectividad": 0.67,
+    "porcentajeAsistencia": 0.7
+  },
+  {
+    "id": 19,
+    "nombre": "Penélope Cruz",
+    "puntos": 18,
+    "asistencias": 7,
+    "ganados": 7,
+    "efectividad": 0.60,
+    "porcentajeAsistencia": 0.75
+  },
+  {
+    "id": 20,
+    "nombre": "Javier Bardem",
+    "puntos": 19,
+    "asistencias": 6,
+    "ganados": 6,
+    "efectividad": 0.55,
+    "porcentajeAsistencia": 0.65
+  }
+]

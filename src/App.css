@@ -73,3 +73,30 @@ body {
     flex-direction: column;
   }
 }
+.select-jugadores {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.select-jugadores h2 {
+  color: #333;
+}
+
+.equipo {
+  margin-bottom: 20px;
+}
+
+.equipo label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.equipo select {
+  width: 200px;
+  height: 140px;
+}
+
+button {
+  display: block;
+  margin-top: 5px;
+}
