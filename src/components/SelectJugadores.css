@@ -23,19 +23,19 @@ body {
     display: flex;
     justify-content: space-between; /* Separa el nombre y el botón */
     align-items: center;
-    width: 100%; /* Asegúrate de que ocupan todo el ancho disponible */
+    width: 100%; 
     margin-bottom: 10px; /* Espacio entre elementos de la lista */
   }
   
   /* Estilo para las secciones de cada equipo */
   .team-section {
-    margin-bottom: 30px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
   }
-  
+  .team-blanco, .team-negro {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+  }
   /* Diferenciación de colores para cada equipo */
   .team-section.team-blanco {
     border-left: 4px solid #007bff;

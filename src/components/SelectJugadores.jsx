@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './SelectJugadores.css';
 
 export const SelectJugadores = ({ jugadores }) => {
+    
     const [equipoBlanco, setEquipoBlanco] = useState([]);
     const [equipoNegro, setEquipoNegro] = useState([]);
   
@@ -36,7 +37,7 @@ export const SelectJugadores = ({ jugadores }) => {
         <h2>Forma tus Equipos</h2>
         <div>
           <label className='team-section' htmlFor="selectBlanco">Equipo Blanco:</label>
-          <select className='team-section.team-blanco' id="selectBlanco" onChange={(e) => handleSelectChange(e, 'blanco')} defaultValue="">
+          <select className='team-section team-blanco' id="selectBlanco" onChange={(e) => handleSelectChange(e, 'blanco')} defaultValue="">
             <option disabled value="">Selecciona un jugador</option>
             {jugadoresDisponibles.map(jugador => (
               <option key={jugador.id} value={jugador.nombre}>{jugador.nombre}</option>
@@ -52,8 +53,8 @@ export const SelectJugadores = ({ jugadores }) => {
           ))}
         </div>
         <div>
-          <label className='team-section' htmlFor="selectNegro">Equipo Negro:</label>
-          <select className='team-section.team-negro' id="selectNegro" onChange={(e) => handleSelectChange(e, 'negro')} defaultValue="">
+          <label className='team-title' htmlFor="selectNegro">Equipo Negro:</label>
+          <select className='team-section team-negro' id="selectNegro" onChange={(e) => handleSelectChange(e, 'negro')} defaultValue="">
             <option disabled value="">Selecciona un jugador</option>
             {jugadoresDisponibles.map(jugador => (
               <option key={jugador.id} value={jugador.nombre}>{jugador.nombre}</option>
