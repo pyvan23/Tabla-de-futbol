@@ -8,79 +8,75 @@ export const SelectJugadores = ({ jugadores }) => {
     const [equipoNegro, setEquipoNegro] = useState([]);
   
     const handleSelectChange = (event, equipo) => {
-      const selectedPlayer = event.target.value;
+      const selectedPlayer = jugadores.find(j => j.nombre === event.target.value);
       if (selectedPlayer) {
-        if (equipo === 'blanco' && equipoBlanco.length < 7) {
-          setEquipoBlanco(equipoBlanco.concat(selectedPlayer));
-        } else if (equipo === 'negro' && equipoNegro.length < 7) {
-          setEquipoNegro(equipoNegro.concat(selectedPlayer));
+        if (equipo === 'blanco' && !equipoBlanco.includes(selectedPlayer)) {
+          setEquipoBlanco([...equipoBlanco, selectedPlayer]);
+        } else if (equipo === 'negro' && !equipoNegro.includes(selectedPlayer)) {
+          setEquipoNegro([...equipoNegro, selectedPlayer]);
         }
       }
     };
   
-    const quitarJugador = (jugador, equipo) => {
+    const quitarJugador = (jugadorId, equipo) => {
       if (equipo === 'blanco') {
-        setEquipoBlanco(equipoBlanco.filter(nombre => nombre !== jugador));
+        setEquipoBlanco(equipoBlanco.filter(jugador => jugador.id !== jugadorId));
       } else if (equipo === 'negro') {
-        setEquipoNegro(equipoNegro.filter(nombre => nombre !== jugador));
+        setEquipoNegro(equipoNegro.filter(jugador => jugador.id !== jugadorId));
       }
     };
+    
   
     // Para evitar seleccionar el mismo jugador en ambos equipos,
     // filtramos los jugadores que ya están seleccionados en alguno de los equipos.
     const jugadoresDisponibles = jugadores.filter(jugador =>
-      !equipoBlanco.includes(jugador.nombre) && !equipoNegro.includes(jugador.nombre)
+      !equipoBlanco.some(blanco => blanco.id === jugador.id) && !equipoNegro.some(negro => negro.id === jugador.id)
     );
   
     return (
       <div className='container'>
         <h2>Forma tus Equipos</h2>
-        <div >
-          <label className='team-section' htmlFor="selectBlanco">Equipo Blanco:</label>
-          <select className='team-section team-blanco' id="selectBlanco" onChange={(e) => handleSelectChange(e, 'blanco')} defaultValue="">
-            <option disabled value="">Selecciona un jugador</option>
-            {jugadoresDisponibles.map(jugador => (
-              <option key={jugador.id} value={jugador.nombre}>{jugador.nombre}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          {equipoBlanco.map(jugador => (
-            <div key={jugador}>
-              {jugador}
-              <button  className='remove-button' onClick={() => quitarJugador(jugador, 'blanco')}>Quitar</button>
-            </div>
-          ))}
-        </div>
-        <div className='soccer-field'>
+        
+        <div className='team-selection'>
+          <div className='team-section'>
+            <label htmlFor="selectBlanco">Equipo Blanco:</label>
+            <select id="selectBlanco" onChange={(e) => handleSelectChange(e, 'blanco')} defaultValue="">
+              <option disabled value="">Selecciona un jugador</option>
+              {jugadoresDisponibles.map(jugador => (
+                <option key={jugador.id} value={jugador.nombre}>{jugador.nombre}</option>
+              ))}
+            </select>
+          </div>
+    
+          <div className='soccer-field-container'>
+      <div className='soccer-field'>
         {equipoBlanco.map((jugador, index) => (
-          <div key={jugador} className='player blanco' style={{ top: `${index * 10 + 10}%`, left: '10%' }}>
-            {jugador}
-          </div>
-        ))}
-        {equipoNegro.map((jugador, index) => (
-          <div key={jugador} className='player negro' style={{ top: `${index * 10 + 10}%`, left: '80%' }}>
-            {jugador}
-          </div>
+         <div key={jugador.id} className={`player blanco player-${index % 7}`} onClick={() => quitarJugador(jugador.id, 'blanco')}>
+         {jugador.nombre}
+       </div>
         ))}
       </div>
-        <div>
-          <label className='team-title' htmlFor="selectNegro">Equipo Negro:</label>
-          <select className='team-section team-negro' id="selectNegro" onChange={(e) => handleSelectChange(e, 'negro')} defaultValue="">
-            <option disabled value="">Selecciona un jugador</option>
-            {jugadoresDisponibles.map(jugador => (
-              <option key={jugador.id} value={jugador.nombre}>{jugador.nombre}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          {equipoNegro.map(jugador => (
-            <div key={jugador}>
-              {jugador}
-              <button className='remove-button' onClick={() => quitarJugador(jugador, 'negro')}>Quitar</button>
-            </div>
-          ))}
+      <div className='soccer-field'>
+        {equipoNegro.map((jugador, index) => (
+       <div key={jugador.id} className={`player negro player-${index % 7}`} onClick={() => quitarJugador(jugador.id, 'negro')}>
+       {jugador.nombre}
+     </div>
+        ))}
+      </div>
+    </div>
+    
+    
+          <div className='team-section'>
+            <label htmlFor="selectNegro">Equipo Negro:</label>
+            <select id="selectNegro" onChange={(e) => handleSelectChange(e, 'negro')} defaultValue="">
+              <option disabled value="">Selecciona un jugador</option>
+              {jugadoresDisponibles.map(jugador => (
+                <option key={jugador.id} value={jugador.nombre}>{jugador.nombre}</option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
     );
+    
   };

@@ -11,16 +11,15 @@ body {
   }
   
   /* Estilo para el contenedor principal */
-.container {
-  display: flex; /* Habilita flexbox */
-  justify-content: space-around; /* Centra los elementos con espacio alrededor */
-  max-width: 1200px; /* Ajusta el ancho máximo */
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    flex-direction: column; /* Alinea los elementos en columna */
+  }
   /* Estilo para los encabezados */
   h2 {
     color: #333;
@@ -102,35 +101,57 @@ body {
     margin: 0;
   }
   
-  /* Estilo para los botones de quitar */
-  .remove-button {
-    padding: 5px 10px;
-    border: none;
-    background-color: #dc3545;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+ 
+  .soccer-field-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
   }
   
-  .remove-button:hover {
-    background-color: #bd2130;
-  }
+  
 
   .soccer-field {
     position: relative;
-    background-image: url('../public/campo-futbol-verde_225004-1137.avif'); 
-    background-size: cover;
+    background-image: url('../public/campo-futbol-verde_225004-1137.avif');
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
-    width: 100%; /* O un ancho específico si lo prefieres */
-    height: 400px;
-    margin-top: 20px; /* Espacio arriba del campo */
+    width: 45%; /* Aumentar el ancho */
+    height: calc(200px + 4cm);
   }
-  .player {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente */
-    padding: 2px 10px;
-    font-size: 12px; /* Tamaño del texto de los nombres */
-    white-space: nowrap;
-    transform: translate(-50%, -50%);
-  }
+  /* Ubicación de los jugadores en el campo */
+.player {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 2px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
   
+  .team-selection {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px; /* Espacio arriba de la selección de equipos */
+  }
+ 
+ /* Ubicaciones específicas para Equipo Blanco */
+.blanco.player-0 { top: 85%; left: 50%; } /* Posición del Arquero */
+.blanco.player-1 { top: 65%; left: 30%; } /* Defensa izquierdo */
+.blanco.player-2 { top: 65%; left: 70%; } /* Defensa derecho */
+.blanco.player-3 { top: 45%; left: 70%; } /* Mediocampo izquierdo */
+.blanco.player-4 { top: 45%; left: 30%; } /* Mediocampo derecho */
+.blanco.player-5 { top: 25%; left: 70%; } /* Delantero central */
+.blanco.player-6 { top: 25%; left: 30%; } /* Delantero izquierdo */
+
+/* Ubicaciones específicas para Equipo Negro */
+.negro.player-0 { top: 85%; left: 50%; } /* Posición del Arquero */
+.negro.player-1 { top: 65%; left: 30%; } /* Defensa izquierdo */
+.negro.player-2 { top: 65%; left: 70%; } /* Defensa derecho */
+.negro.player-3 { top: 45%; left: 70%; } /* Mediocampo izquierdo */
+.negro.player-4 { top: 45%; left: 30%; } /* Mediocampo derecho */
+.negro.player-5 { top: 25%; left: 70%; } /* Delantero central */
+.negro.player-6 { top: 25%; left: 30%; } /* Delantero izquierdo */
