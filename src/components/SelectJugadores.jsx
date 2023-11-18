@@ -35,7 +35,7 @@ export const SelectJugadores = ({ jugadores }) => {
     return (
       <div className='container'>
         <h2>Forma tus Equipos</h2>
-        <div>
+        <div >
           <label className='team-section' htmlFor="selectBlanco">Equipo Blanco:</label>
           <select className='team-section team-blanco' id="selectBlanco" onChange={(e) => handleSelectChange(e, 'blanco')} defaultValue="">
             <option disabled value="">Selecciona un jugador</option>
@@ -52,6 +52,18 @@ export const SelectJugadores = ({ jugadores }) => {
             </div>
           ))}
         </div>
+        <div className='soccer-field'>
+        {equipoBlanco.map((jugador, index) => (
+          <div key={jugador} className='player blanco' style={{ top: `${index * 10 + 10}%`, left: '10%' }}>
+            {jugador}
+          </div>
+        ))}
+        {equipoNegro.map((jugador, index) => (
+          <div key={jugador} className='player negro' style={{ top: `${index * 10 + 10}%`, left: '80%' }}>
+            {jugador}
+          </div>
+        ))}
+      </div>
         <div>
           <label className='team-title' htmlFor="selectNegro">Equipo Negro:</label>
           <select className='team-section team-negro' id="selectNegro" onChange={(e) => handleSelectChange(e, 'negro')} defaultValue="">
