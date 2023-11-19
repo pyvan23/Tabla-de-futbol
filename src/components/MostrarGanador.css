@@ -1,0 +1,35 @@
+/* Estilo para los botones de selección de equipo ganador */
+.winner-buttons button {
+    /* Tus estilos para botones aquí */
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+  
+  .winner-buttons button:disabled {
+    background-color: #ccc;
+  }
+  
+  /* Estilos para la tabla del equipo ganador */
+  .ganador-container {
+    margin-top: 20px;
+  }
+  
+  .ganador-container h3 {
+    text-align: center;
+  }
+  
+  .ganador-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .ganador-container th, .ganador-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .ganador-container th {
+    background-color: #f2f2f2;
+  }
+  
