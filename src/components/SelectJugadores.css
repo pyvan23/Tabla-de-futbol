@@ -113,7 +113,7 @@ body {
 
   .soccer-field {
     position: relative;
-    background-image: url("/dist/assets/campo-futbol-verde_225004-1137.avif");
+    background-image: url("campo-futbol-verde_225004-1137.avif");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
