@@ -7,7 +7,7 @@ export const Header = () => {
       <div className="logo">Mi Sitio</div>
       <nav>
         <NavLink to="/">Inicio</NavLink>
-        <NavLink to="/Tabla">Tabla</NavLink>
+       
       <LoginForm />
       </nav>
     </header>

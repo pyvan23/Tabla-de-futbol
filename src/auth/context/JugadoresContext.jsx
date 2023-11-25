@@ -6,6 +6,7 @@ const JugadoresContext = createContext();
 export const useJugadores = () => useContext(JugadoresContext);
 
 export const JugadoresProvider = ({ children }) => {
+  
   const [jugadores, setJugadores] = useState([]);
   
   // Función para añadir puntos a un ganador

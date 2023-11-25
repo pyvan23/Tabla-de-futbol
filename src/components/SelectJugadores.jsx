@@ -4,19 +4,24 @@ import { MostrarGanador } from "./MostrarGanador";
 import "./SelectJugadores.css";
 
 export const SelectJugadores = ({ jugadores }) => {
+
   const [equipoBlanco, setEquipoBlanco] = useState([]);
   const [equipoNegro, setEquipoNegro] = useState([]);
   const [equipoGanador, setGanador] = useState([]); // Estado para almacenar el equipo ganador
+  const [selectedBlanco, setSelectedBlanco] = useState("");
+  const [selectedNegro, setSelectedNegro] = useState("");
 
   const handleSelectChange = (event, equipo) => {
     const selectedPlayer = jugadores.find(
       (j) => j.nombre === event.target.value
     );
     if (selectedPlayer) {
-      if (equipo === "blanco" && !equipoBlanco.includes(selectedPlayer)) {
+      if (equipo === "blanco") {
         setEquipoBlanco([...equipoBlanco, selectedPlayer]);
-      } else if (equipo === "negro" && !equipoNegro.includes(selectedPlayer)) {
+        setSelectedBlanco(""); // Resetea el valor seleccionado del dropdown
+      } else {
         setEquipoNegro([...equipoNegro, selectedPlayer]);
+        setSelectedNegro(""); // Resetea el valor seleccionado del dropdown
       }
     }
   };
@@ -52,8 +57,11 @@ console.log(equipoGanador);
           <label htmlFor="selectBlanco">Equipo Blanco:</label>
           <select
             id="selectBlanco"
-            onChange={(e) => handleSelectChange(e, "blanco")}
-            defaultValue=""
+            value={selectedBlanco} // Usa el estado para controlar el valor
+            onChange={(e) => {
+              setSelectedBlanco(e.target.value); // Actualiza el estado del valor seleccionado
+              handleSelectChange(e, "blanco");
+            }}
           >
             <option disabled value="">
               Selecciona un jugador
@@ -95,8 +103,11 @@ console.log(equipoGanador);
           <label htmlFor="selectNegro">Equipo Negro:</label>
           <select
             id="selectNegro"
-            onChange={(e) => handleSelectChange(e, "negro")}
-            defaultValue=""
+            value={selectedNegro} // Usa el estado para controlar el valor
+            onChange={(e) => {
+              setSelectedNegro(e.target.value); // Actualiza el estado del valor seleccionado
+              handleSelectChange(e, "negro");
+            }}
           >
             <option disabled value="">
               Selecciona un jugador
