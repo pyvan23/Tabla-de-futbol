@@ -1,20 +1,13 @@
-import { useState, useEffect } from "react";
 import { Jugadores } from "../components/Jugadores";
 import { Header } from "../components/Header";
-
+import { useJugadores } from "../auth/context/JugadoresContext";
+import { MostrarGanador } from "../components/MostrarGanador";
 
 export const TablaScreen = () => {
 
-  const [jugadores, setJugadores] = useState([]);
-
-  useEffect(() => {
-    fetch("/jugadores.json")
-      .then((response) => response.json())
-
-      .then((data) => setJugadores(data))
-
-      .catch((error) => console.error("Error al cargar los jugadores:", error));
-  }, []);
+  const { jugadores, anadirPuntosAGanador } = useJugadores();
+  
+ 
   console.log(jugadores);
   return (
     <>
@@ -33,8 +26,7 @@ export const TablaScreen = () => {
         </thead>
         <Jugadores jugadores={jugadores} />
       </table>
-      
-    {/* {jugadores.length > 0 && <AdminScreen jugadores={jugadores} />} */}
+    <MostrarGanador anadirPuntosAGanador={anadirPuntosAGanador}/>
     </>
   );
 };

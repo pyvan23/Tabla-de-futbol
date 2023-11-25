@@ -11,8 +11,8 @@ export const AppRouter = () => {
   return (
     <>
      <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/Tabla" element={<TablaScreen />} />
+       
+          <Route path="/" element={<TablaScreen />} />
           <Route path="/Admin" element={<AdminScreen />} />
         </Routes>
     </>

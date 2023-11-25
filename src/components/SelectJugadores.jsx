@@ -6,7 +6,7 @@ import "./SelectJugadores.css";
 export const SelectJugadores = ({ jugadores }) => {
   const [equipoBlanco, setEquipoBlanco] = useState([]);
   const [equipoNegro, setEquipoNegro] = useState([]);
-  const [ganador, setGanador] = useState(null); // Estado para almacenar el equipo ganador
+  const [equipoGanador, setGanador] = useState([]); // Estado para almacenar el equipo ganador
 
   const handleSelectChange = (event, equipo) => {
     const selectedPlayer = jugadores.find(
@@ -39,9 +39,10 @@ export const SelectJugadores = ({ jugadores }) => {
       !equipoNegro.some((negro) => negro.id === jugador.id)
   );
   const seleccionarGanador = (equipo) => {
-    setGanador(equipo === "blanco" ? "Equipo Blanco" : "Equipo Negro");
+    setGanador(equipo === "blanco" ? equipoBlanco : equipoNegro);
   };
-
+console.log(equipoBlanco);
+console.log(equipoGanador);
   return (
     <div className="container">
       <h2>Forma tus Equipos</h2>
@@ -125,7 +126,7 @@ export const SelectJugadores = ({ jugadores }) => {
       </div>
 
       {/* Componente para mostrar el equipo ganador */}
-      {ganador && <MostrarGanador equipoGanador={ganador === 'Equipo Blanco' ? equipoBlanco : equipoNegro} />}
+      {equipoGanador && <MostrarGanador equipoGanador={equipoGanador === equipoBlanco ? equipoBlanco : equipoNegro} />}
     </div>
   );
 };
