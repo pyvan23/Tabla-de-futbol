@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom"
 import { TablaScreen } from "../pages/TablaScreen"
-import { LoginPage } from "../auth/pages/LoginPage"
 import { AdminScreen } from "../pages/AdminScreen"
 
 

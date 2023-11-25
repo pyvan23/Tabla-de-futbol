@@ -1,11 +1,11 @@
 import { Jugadores } from "../components/Jugadores";
 import { Header } from "../components/Header";
 import { useJugadores } from "../auth/context/JugadoresContext";
-import { MostrarGanador } from "../components/MostrarGanador";
+
 
 export const TablaScreen = () => {
 
-  const { jugadores, anadirPuntosAGanador } = useJugadores();
+  const { jugadores, } = useJugadores();
   
  
   console.log(jugadores);
@@ -26,7 +26,7 @@ export const TablaScreen = () => {
         </thead>
         <Jugadores jugadores={jugadores} />
       </table>
-    <MostrarGanador anadirPuntosAGanador={anadirPuntosAGanador}/>
+    {/* <MostrarGanador anadirPuntosAGanador={anadirPuntosAGanador}/> */}
     </>
   );
 };
