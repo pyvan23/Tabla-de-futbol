@@ -2,14 +2,20 @@
 import { useState } from "react";
 import { MostrarGanador } from "./MostrarGanador";
 import "./SelectJugadores.css";
+import { useJugadores } from "../auth/context/JugadoresContext";
 
-export const SelectJugadores = ({ jugadores }) => {
+
+export const SelectJugadores = () => {
+  
+  const { jugadores } = useJugadores();
+  
 
   const [equipoBlanco, setEquipoBlanco] = useState([]);
   const [equipoNegro, setEquipoNegro] = useState([]);
   const [equipoGanador, setGanador] = useState([]); // Estado para almacenar el equipo ganador
   const [selectedBlanco, setSelectedBlanco] = useState("");
   const [selectedNegro, setSelectedNegro] = useState("");
+  
 
   const handleSelectChange = (event, equipo) => {
     const selectedPlayer = jugadores.find(
@@ -18,7 +24,9 @@ export const SelectJugadores = ({ jugadores }) => {
     if (selectedPlayer) {
       if (equipo === "blanco") {
         setEquipoBlanco([...equipoBlanco, selectedPlayer]);
+
         setSelectedBlanco(""); // Resetea el valor seleccionado del dropdown
+        
       } else {
         setEquipoNegro([...equipoNegro, selectedPlayer]);
         setSelectedNegro(""); // Resetea el valor seleccionado del dropdown
@@ -29,10 +37,10 @@ export const SelectJugadores = ({ jugadores }) => {
   const quitarJugador = (jugadorId, equipo) => {
     if (equipo === "blanco") {
       setEquipoBlanco(
-        equipoBlanco.filter((jugador) => jugador.id !== jugadorId)
+        equipoBlanco.filter((jugador) => jugador._id !== jugadorId)
       );
     } else if (equipo === "negro") {
-      setEquipoNegro(equipoNegro.filter((jugador) => jugador.id !== jugadorId));
+      setEquipoNegro(equipoNegro.filter((jugador) => jugador._id !== jugadorId));
     }
   };
 
@@ -40,14 +48,13 @@ export const SelectJugadores = ({ jugadores }) => {
   // filtramos los jugadores que ya están seleccionados en alguno de los equipos.
   const jugadoresDisponibles = jugadores.filter(
     (jugador) =>
-      !equipoBlanco.some((blanco) => blanco.id === jugador.id) &&
-      !equipoNegro.some((negro) => negro.id === jugador.id)
+      !equipoBlanco.some((blanco) => blanco._id === jugador._id) &&
+      !equipoNegro.some((negro) => negro._id === jugador._id)
   );
   const seleccionarGanador = (equipo) => {
     setGanador(equipo === "blanco" ? equipoBlanco : equipoNegro);
   };
-console.log(equipoBlanco);
-console.log(equipoGanador);
+
   return (
     <div className="container">
       <h2>Forma tus Equipos</h2>
@@ -78,9 +85,9 @@ console.log(equipoGanador);
           <div className="soccer-field">
             {equipoBlanco.map((jugador, index) => (
               <div
-                key={jugador.id}
+                key={jugador._id}
                 className={`player blanco player-${index % 7}`}
-                onClick={() => quitarJugador(jugador.id, "blanco")}
+                onClick={() => quitarJugador(jugador._id, "blanco")}
               >
                 {jugador.nombre}
               </div>
@@ -91,7 +98,7 @@ console.log(equipoGanador);
               <div
                 key={jugador.id}
                 className={`player negro player-${index % 7}`}
-                onClick={() => quitarJugador(jugador.id, "negro")}
+                onClick={() => quitarJugador(jugador._id, "negro")}
               >
                 {jugador.nombre}
               </div>
@@ -113,7 +120,7 @@ console.log(equipoGanador);
               Selecciona un jugador
             </option>
             {jugadoresDisponibles.map((jugador) => (
-              <option key={jugador.id} value={jugador.nombre}>
+              <option key={jugador._id} value={jugador.nombre}>
                 {jugador.nombre}
               </option>
             ))}

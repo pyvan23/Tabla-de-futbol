@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "nombre": "Agustin",
     "puntos": 0,
     "asistencias": 5,
@@ -9,7 +8,6 @@
     "porcentajeAsistencia": 0.6
   },
   {
-    "id": 2,
     "nombre": "Gusta",
     "puntos": 0,
     "asistencias": 7,
@@ -18,25 +16,22 @@
     "porcentajeAsistencia": 0.7
   },
   {
-    "id": 3,
     "nombre": "Rata",
     "puntos": 0,
     "asistencias": 9,
     "ganados": 5,
-    "efectividad": 0.50,
+    "efectividad": 0.5,
     "porcentajeAsistencia": 0.8
   },
   {
-    "id": 0,
     "nombre": "Tanga",
     "puntos": 0,
     "asistencias": 6,
     "ganados": 7,
-    "efectividad": 0.60,
+    "efectividad": 0.6,
     "porcentajeAsistencia": 0.65
   },
   {
-    "id": 5,
     "nombre": "Ivo",
     "puntos": 0,
     "asistencias": 5,
@@ -45,7 +40,6 @@
     "porcentajeAsistencia": 0.6
   },
   {
-    "id": 6,
     "nombre": "Chichi",
     "puntos": 0,
     "asistencias": 7,
@@ -54,25 +48,22 @@
     "porcentajeAsistencia": 0.7
   },
   {
-    "id": 7,
     "nombre": "Rulo",
     "puntos": 0,
     "asistencias": 9,
     "ganados": 5,
-    "efectividad": 0.50,
+    "efectividad": 0.5,
     "porcentajeAsistencia": 0.8
   },
   {
-    "id": 8,
     "nombre": "Chelo",
     "puntos": 0,
     "asistencias": 6,
     "ganados": 7,
-    "efectividad": 0.60,
+    "efectividad": 0.6,
     "porcentajeAsistencia": 0.65
   },
   {
-    "id": 9,
     "nombre": "Mono",
     "puntos": 0,
     "asistencias": 4,
@@ -81,34 +72,30 @@
     "porcentajeAsistencia": 0.5
   },
   {
-    "id": 10,
     "nombre": "Gonza",
     "puntos": 0,
     "asistencias": 6,
     "ganados": 0,
-    "efectividad": 0.70,
+    "efectividad": 0.7,
     "porcentajeAsistencia": 0.75
   },
   {
-    "id": 11,
     "nombre": "Chori",
     "puntos": 0,
     "asistencias": 8,
     "ganados": 11,
-    "efectividad": 0.80,
+    "efectividad": 0.8,
     "porcentajeAsistencia": 0.85
   },
   {
-    "id": 12,
     "nombre": "Diego",
     "puntos": 0,
     "asistencias": 5,
     "ganados": 4,
-    "efectividad": 0.50,
+    "efectividad": 0.5,
     "porcentajeAsistencia": 0.6
   },
   {
-    "id": 13,
     "nombre": "Tomate",
     "puntos": 0,
     "asistencias": 4,
@@ -117,16 +104,14 @@
     "porcentajeAsistencia": 0.6
   },
   {
-    "id": 14,
     "nombre": "Ale C",
     "puntos": 0,
     "asistencias": 7,
     "ganados": 9,
-    "efectividad": 0.70,
+    "efectividad": 0.7,
     "porcentajeAsistencia": 0.77
   },
   {
-    "id": 15,
     "nombre": "Andy",
     "puntos": 0,
     "asistencias": 6,
@@ -135,16 +120,14 @@
     "porcentajeAsistencia": 0.68
   },
   {
-    "id": 16,
     "nombre": "Diego Maradona",
     "puntos": 0,
     "asistencias": 0,
     "ganados": 10,
     "efectividad": 0.75,
-    "porcentajeAsistencia": 0.80
+    "porcentajeAsistencia": 0.8
   },
   {
-    "id": 17,
     "nombre": "Oliver",
     "puntos": 0,
     "asistencias": 5,
@@ -153,7 +136,6 @@
     "porcentajeAsistencia": 0.63
   },
   {
-    "id": 18,
     "nombre": "0",
     "puntos": 24,
     "asistencias": 6,
@@ -162,16 +144,14 @@
     "porcentajeAsistencia": 0.7
   },
   {
-    "id": 19,
     "nombre": "Richard",
     "puntos": 0,
     "asistencias": 7,
     "ganados": 7,
-    "efectividad": 0.60,
+    "efectividad": 0.6,
     "porcentajeAsistencia": 0.75
   },
   {
-    "id": 20,
     "nombre": "Romagnoli",
     "puntos": 0,
     "asistencias": 6,

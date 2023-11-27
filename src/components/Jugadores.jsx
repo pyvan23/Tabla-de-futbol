@@ -4,6 +4,7 @@ import { useJugadores } from "../auth/context/JugadoresContext";
 
 
 export const Jugadores =  (  ) => {
+  
   const { jugadores } = useJugadores(); 
   console.log('jugadores:',jugadores);
     const calcularPorcentaje = (valor, total) => {
@@ -16,7 +17,7 @@ export const Jugadores =  (  ) => {
     <>
       <tbody>
         {jugadores.map((jugador) => (
-          <tr key={jugador.id}>
+          <tr key={jugador._id}>
             <td>{jugador.nombre}</td>
             <td>{jugador.puntos}</td>
             <td>{jugador.asistencias}</td>

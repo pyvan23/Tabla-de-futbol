@@ -5,17 +5,28 @@ import { useJugadores } from "../auth/context/JugadoresContext";
 import "./MostrarGanador.css";
 
 export const MostrarGanador = ({ equipoGanador=[]  }) => {
-  const { anadirPuntosAGanador } = useJugadores();
-  console.log(equipoGanador);
+  const { anadirPuntosAGanador, actualizarJugadoresEnServidor } = useJugadores();
+  
   const navigate = useNavigate();
 
-    // Llamada a la función anadirPuntosAGanador para cada ganador
-    const agregarPuntosAGanadores = () => {
-        equipoGanador.forEach(jugador => {
-            anadirPuntosAGanador(jugador.id,3); // Sumar 3 puntos a cada ganador
-        });
-        setTimeout(() => navigate('/'), 500);
-    };
+ const agregarPuntosAGanadores = () => {
+  // Actualizamos los puntos de todos los jugadores ganadores primero
+  equipoGanador.forEach(jugador => 
+    anadirPuntosAGanador(jugador._id, 3)
+  );
+
+  // Después de actualizar todos los puntos, actualizamos el servidor
+  actualizarJugadoresEnServidor().then(() => {
+    // Una vez que los jugadores se han actualizado con éxito en el servidor,
+    // navega de vuelta a la página de inicio tras una breve pausa
+    setTimeout(() => navigate('/'), 500);
+  })
+  .catch(error => {
+    // Manejo de errores
+    console.error("Error al actualizar jugadores en el servidor:", error);
+  });
+};
+
 
   
 
@@ -31,7 +42,7 @@ export const MostrarGanador = ({ equipoGanador=[]  }) => {
           </thead>
           <tbody>
             {equipoGanador.map(jugador => (
-              <tr key={jugador.id}>
+              <tr key={jugador._id}>
                 <td>{jugador.nombre}</td>
               </tr>
             ))}
