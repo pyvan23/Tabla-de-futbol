@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 
 import { useNavigate } from "react-router-dom";
-import { useJugadores } from "../auth/context/JugadoresContext";
+import { useJugadores } from "../context/JugadoresContext";
 import "./MostrarGanador.css";
 
-export const MostrarGanador = ({ equipoGanador=[]  }) => {
+export const MostrarGanador = ({ equipoGanador=[] ,equipo=''}) => {
+console.log(equipoGanador);
   const { anadirPuntosAGanador, actualizarJugadoresEnServidor } = useJugadores();
   
   const navigate = useNavigate();
-
+ 
  const agregarPuntosAGanadores = () => {
   // Actualizamos los puntos de todos los jugadores ganadores primero
   equipoGanador.forEach(jugador => 
@@ -27,13 +28,9 @@ export const MostrarGanador = ({ equipoGanador=[]  }) => {
   });
 };
 
-
-  
-
-
     return (
       <div className='ganador-container'>
-        <h3>{`Ganadores: ${equipoGanador.length > 0 ? equipoGanador[0].equipo : ''}`}</h3>
+        <h3>{`Ganadores: ${equipo}`}</h3>
         <table>
           <thead>
             <tr>

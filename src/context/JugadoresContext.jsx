@@ -21,7 +21,7 @@ export const JugadoresProvider = ({ children }) => {
       )
     );
   };
-  const actualizarJugadoresEnServidor = async() => {
+  /*const actualizarJugadoresEnServidor = async() => {
     return fetch("http://localhost:8080/api/players", {
       method: "PUT",
       headers: {
@@ -42,6 +42,27 @@ export const JugadoresProvider = ({ children }) => {
       console.error("Error al actualizar jugadores:", error);
     });
   };
+*/
+const actualizarJugadoresEnServidor = async () => {
+  try {
+    const response = await fetch("http://localhost:8080/api/players", {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jugadores),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    console.log("Jugadores actualizados con éxito:", data);
+  } catch (error) {
+    console.error("Error al actualizar jugadores:", error);
+  }
+};
 
 
   // recuperamos jugadores del server

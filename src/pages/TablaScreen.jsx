@@ -1,6 +1,6 @@
 import { Jugadores } from "../components/Jugadores";
 import { Header } from "../components/Header";
-import { useJugadores } from "../auth/context/JugadoresContext";
+import { useJugadores } from "../context/JugadoresContext";
 
 
 export const TablaScreen = () => {
@@ -26,7 +26,6 @@ export const TablaScreen = () => {
         </thead>
         <Jugadores jugadores={jugadores} />
       </table>
-    {/* <MostrarGanador anadirPuntosAGanador={anadirPuntosAGanador}/> */}
     </>
   );
 };

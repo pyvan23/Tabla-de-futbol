@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { MostrarGanador } from "./MostrarGanador";
 import "./SelectJugadores.css";
-import { useJugadores } from "../auth/context/JugadoresContext";
+import { useJugadores } from "../context/JugadoresContext";
 
 
 export const SelectJugadores = () => {
@@ -15,6 +15,8 @@ export const SelectJugadores = () => {
   const [equipoGanador, setGanador] = useState([]); // Estado para almacenar el equipo ganador
   const [selectedBlanco, setSelectedBlanco] = useState("");
   const [selectedNegro, setSelectedNegro] = useState("");
+
+  
   
 
   const handleSelectChange = (event, equipo) => {
@@ -144,7 +146,7 @@ export const SelectJugadores = () => {
       </div>
 
       {/* Componente para mostrar el equipo ganador */}
-      {equipoGanador && <MostrarGanador equipoGanador={equipoGanador === equipoBlanco ? equipoBlanco : equipoNegro} />}
+      {equipoGanador && <MostrarGanador equipo={equipoGanador === equipoBlanco ? 'blanco' : 'negro'} equipoGanador={equipoGanador === equipoBlanco ? equipoBlanco : equipoNegro} />}
     </div>
   );
 };

@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 
-import { useJugadores } from "../auth/context/JugadoresContext";
+import { useJugadores } from "../context/JugadoresContext";
 
 
 export const Jugadores =  (  ) => {
   
   const { jugadores } = useJugadores(); 
-  console.log('jugadores:',jugadores);
+  
     const calcularPorcentaje = (valor, total) => {
     if (total > 0) {
       return ((valor / total) * 100).toFixed(2) + "%";
