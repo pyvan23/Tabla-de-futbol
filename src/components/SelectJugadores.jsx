@@ -57,6 +57,8 @@ export const SelectJugadores = () => {
     setGanador(equipo === "blanco" ? equipoBlanco : equipoNegro);
   };
 
+console.log('equipo blanco',equipoBlanco);
+
   return (
     <div className="container">
       <h2>Forma tus Equipos</h2>
@@ -76,7 +78,7 @@ export const SelectJugadores = () => {
               Selecciona un jugador
             </option>
             {jugadoresDisponibles.map((jugador) => (
-              <option key={jugador.id} value={jugador.nombre}>
+              <option key={jugador._id} value={jugador.nombre}>
                 {jugador.nombre}
               </option>
             ))}

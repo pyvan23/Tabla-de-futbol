@@ -6,78 +6,70 @@ const JugadoresContext = createContext();
 export const useJugadores = () => useContext(JugadoresContext);
 
 export const JugadoresProvider = ({ children }) => {
-  
   const [jugadores, setJugadores] = useState([]);
-  
-  
-  // Función para añadir puntos a un ganador
-  const anadirPuntosAGanador = (idJugador, puntos) => {
-    setJugadores((jugadores) =>
+  const [debeActualizar, setDebeActualizar] = useState(false);
 
-      jugadores.map((jugador) =>
+  // Función para añadir puntos a un ganador y marcar que se necesita una actualización
+  const anadirPuntosAGanador = (idJugador, puntos) => {
+    setJugadores(jugadoresPrevios =>
+      jugadoresPrevios.map(jugador =>
         jugador._id === idJugador
-          ? { ...jugador, puntos: jugador.puntos + puntos }
+          ? { ...jugador, gano: true ,puntos: jugador.puntos + puntos }
           : jugador
       )
     );
+    setDebeActualizar(true); // Marca que se necesita una actualización en el servidor
   };
-  /*const actualizarJugadoresEnServidor = async() => {
-    return fetch("http://localhost:8080/api/players", {
-      method: "PUT",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jugadores),
-    })
-    .then(response => {
+
+  const actualizarJugadoresEnServidor = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/api/players", {
+        method: "PUT",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(jugadores),
+      });
+
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      return response.json();
-    })
-    .then(data => {
+
+      const data = await response.json();
       console.log("Jugadores actualizados con éxito:", data);
-    })
-    .catch(error => {
+    } catch (error) {
       console.error("Error al actualizar jugadores:", error);
-    });
-  };
-*/
-const actualizarJugadoresEnServidor = async () => {
-  try {
-    const response = await fetch("http://localhost:8080/api/players", {
-      method: "PUT",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jugadores),
-    });
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+    } finally {
+      setDebeActualizar(false); 
     }
+  };
 
-    const data = await response.json();
-    console.log("Jugadores actualizados con éxito:", data);
-  } catch (error) {
-    console.error("Error al actualizar jugadores:", error);
-  }
-};
-
-
-  // recuperamos jugadores del server
   useEffect(() => {
-    fetch("http://localhost:8080/api/players")
-    
-      .then((response) => response.json())
-      .then((data) => setJugadores(data))
-      .catch((error) => console.error("Error al cargar los jugadores:", error));
+    if (debeActualizar) {
+      actualizarJugadoresEnServidor();
+    }
+  }, [debeActualizar]); // Este efecto se ejecuta cuando `debeActualizar` cambia.
+
+  // Efecto para recuperar jugadores del servidor al montar el componente
+  useEffect(() => {
+    const cargarJugadores = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/api/players");
+        if (!response.ok) {
+          throw new Error('Error al cargar los jugadores');
+        }
+        const data = await response.json();
+        setJugadores(data);
+      } catch (error) {
+        console.error("Error al cargar los jugadores:", error);
+      }
+    };
+
+    cargarJugadores();
   }, []);
 
-   
-
   return (
-    <JugadoresContext.Provider value={{ jugadores, anadirPuntosAGanador,actualizarJugadoresEnServidor }}>
+    <JugadoresContext.Provider value={{ jugadores, anadirPuntosAGanador, actualizarJugadoresEnServidor }}>
       {children}
     </JugadoresContext.Provider>
   );

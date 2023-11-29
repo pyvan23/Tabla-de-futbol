@@ -1,14 +1,11 @@
 import { Jugadores } from "../components/Jugadores";
 import { Header } from "../components/Header";
-import { useJugadores } from "../context/JugadoresContext";
+
 
 
 export const TablaScreen = () => {
 
-  const { jugadores, } = useJugadores();
-  
- 
-  console.log(jugadores);
+
   return (
     <>
       <Header />
@@ -24,7 +21,7 @@ export const TablaScreen = () => {
             <th>% ASISTENCIA</th>
           </tr>
         </thead>
-        <Jugadores jugadores={jugadores} />
+        <Jugadores />
       </table>
     </>
   );

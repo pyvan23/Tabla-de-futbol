@@ -3,30 +3,29 @@
 import { useNavigate } from "react-router-dom";
 import { useJugadores } from "../context/JugadoresContext";
 import "./MostrarGanador.css";
+import { useEffect, useState } from "react";
+
 
 export const MostrarGanador = ({ equipoGanador=[] ,equipo=''}) => {
-console.log(equipoGanador);
-  const { anadirPuntosAGanador, actualizarJugadoresEnServidor } = useJugadores();
+
+  const { anadirPuntosAGanador} = useJugadores();
+  const [debeActualizarPuntos, setDebeActualizarPuntos] = useState(false);
   
   const navigate = useNavigate();
  
- const agregarPuntosAGanadores = () => {
-  // Actualizamos los puntos de todos los jugadores ganadores primero
-  equipoGanador.forEach(jugador => 
-    anadirPuntosAGanador(jugador._id, 3)
-  );
+  useEffect(() => {
+    if (debeActualizarPuntos) {
+      equipoGanador.forEach(jugador => 
+        anadirPuntosAGanador(jugador._id, 3)
+      );
+      setTimeout(() => navigate('/'), 500);
+      setDebeActualizarPuntos(false); // Restablece el estado para evitar actualizaciones duplicadas
+    }
+  }, [ debeActualizarPuntos, equipoGanador, anadirPuntosAGanador, navigate]);
 
-  // Después de actualizar todos los puntos, actualizamos el servidor
-  actualizarJugadoresEnServidor().then(() => {
-    // Una vez que los jugadores se han actualizado con éxito en el servidor,
-    // navega de vuelta a la página de inicio tras una breve pausa
-    setTimeout(() => navigate('/'), 500);
-  })
-  .catch(error => {
-    // Manejo de errores
-    console.error("Error al actualizar jugadores en el servidor:", error);
-  });
-};
+  const manejarSumaPuntos = () => {
+    setDebeActualizarPuntos(true);
+  };
 
     return (
       <div className='ganador-container'>
@@ -45,7 +44,7 @@ console.log(equipoGanador);
             ))}
           </tbody>
         </table>
-        <button onClick={()=>agregarPuntosAGanadores()}>Sumar Puntos a Ganadores</button>
+        <button onClick={manejarSumaPuntos}>Sumar Puntos a Ganadores</button>
       </div>
     );
 };
