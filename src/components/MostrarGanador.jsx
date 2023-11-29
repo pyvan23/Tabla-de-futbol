@@ -21,7 +21,7 @@ export const MostrarGanador = ({ equipoGanador=[] ,equipo=''}) => {
       setTimeout(() => navigate('/'), 500);
       setDebeActualizarPuntos(false); // Restablece el estado para evitar actualizaciones duplicadas
     }
-  }, [ debeActualizarPuntos, equipoGanador, anadirPuntosAGanador, navigate]);
+  }, [ debeActualizarPuntos, equipoGanador]);
 
   const manejarSumaPuntos = () => {
     setDebeActualizarPuntos(true);

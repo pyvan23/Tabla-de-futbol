@@ -13,19 +13,21 @@
       }
       return "0%";
     };
+
+    const jugadoresOrdenados = jugadores.sort((a, b) => b.puntos - a.puntos);
     return (
       <>
         <tbody>
-          {jugadores.map((jugador) => (
-            <tr key={jugador._id}>
-              <td>{jugador.nombre}</td>
-              <td>{jugador.puntos}</td>
-              <td>{jugador.asistencias}</td>
-              <td>{jugador.ganados}</td>
-              <td>{calcularPorcentaje(jugador.ganados, jugador.puntos)}</td>
-              <td>{calcularPorcentaje(jugador.asistencias, jugador.puntos)}</td>
-            </tr>
-          ))}
+        {jugadoresOrdenados.map((jugador) => (
+          <tr key={jugador._id}>
+            <td>{jugador.nombre}</td>
+            <td>{jugador.puntos}</td>
+            <td>{jugador.asistencias}</td>
+            <td>{jugador.ganados}</td>
+            <td>{calcularPorcentaje(jugador.ganados, jugador.puntos)}</td>
+            <td>{calcularPorcentaje(jugador.asistencias, jugador.puntos)}</td>
+          </tr>
+        ))}
         </tbody>
       </>
     );
