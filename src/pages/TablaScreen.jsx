@@ -1,6 +1,6 @@
 import { Jugadores } from "../components/Jugadores";
 import { Header } from "../components/Header";
-
+import "./TablaScreen.css";
 
 
 export const TablaScreen = () => {
@@ -8,8 +8,9 @@ export const TablaScreen = () => {
 
   return (
     <>
-      <Header />
+     <div className="background">
       <h1>2023</h1>
+      <Header />
       <table>
         <thead>
           <tr>
@@ -23,6 +24,7 @@ export const TablaScreen = () => {
         </thead>
         <Jugadores />
       </table>
+      </div>
     </>
   );
 };

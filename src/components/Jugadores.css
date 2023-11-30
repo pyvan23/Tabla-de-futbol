@@ -1,0 +1,8 @@
+.jugador-fila {
+    cursor: pointer; /* Cambia el cursor a un puntero */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+  }
+  
+  .jugador-fila:hover {
+    background-color: #f2f2f2; /* Cambia el color de fondo al hacer hover */
+  }
