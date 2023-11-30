@@ -12,16 +12,7 @@ export const TablaScreen = () => {
       <h1>2023</h1>
       <Header />
       <table>
-        <thead>
-          <tr>
-            <th>JUGADORES</th>
-            <th>PTOS</th>
-            <th>ASISTENCIA</th>
-            <th>GANADOS</th>
-            <th>% EFECT.</th>
-            <th>% ASISTENCIA</th>
-          </tr>
-        </thead>
+       
         <Jugadores />
       </table>
       </div>

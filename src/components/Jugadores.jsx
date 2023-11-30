@@ -30,6 +30,16 @@ import "./Jugadores.css";
     const jugadoresOrdenados = jugadores.sort((a, b) => b.puntos - a.puntos);
     return (
       <>
+       <thead >
+        <tr >
+          <th className="thead">JUGADORES</th>
+          <th className="thead">PTOS</th>
+          <th>ASISTENCIA</th>
+          <th>GANADOS</th>
+          <th>% EFECT.</th>
+          <th>% ASISTENCIA</th>
+        </tr>
+      </thead>
         <tbody>
         {jugadoresOrdenados.map((jugador) => (
           <tr className="jugador-fila" key={jugador._id} onClick={() => openModalWithJugador(jugador)}>
@@ -46,7 +56,7 @@ import "./Jugadores.css";
   isOpen={modalIsOpen} 
   onClose={() => setModalIsOpen(false)} 
   jugador={selectedJugador} 
-  imagenCarta="https://files.oaiusercontent.com/file-Qgzpog9ZUl3mEC3iA1eXhf0u?se=2023-11-30T02%3A49%3A17Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D3599%2C%20immutable&rscd=attachment%3B%20filename%3Dimage.png&sig=VplnvKgk6mELDqWIFyJwezEozQ62fg5tCOjjvwdyb1k%3D"
+ 
 />
       </>
     );

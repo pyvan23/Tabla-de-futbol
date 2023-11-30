@@ -6,3 +6,30 @@
   .jugador-fila:hover {
     background-color: #f2f2f2; /* Cambia el color de fondo al hacer hover */
   }
+
+.thead {
+    cursor: pointer; /* Cambia el cursor a un puntero */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+  }
+  
+  .thead:hover {
+    background-color: rgb(177, 220, 167); /* Cambia el color de fondo al hacer hover */
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  table {
+    margin: auto;
+    border-collapse: collapse;
+  }
+  
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  
+  
+
