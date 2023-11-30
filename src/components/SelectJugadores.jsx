@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { MostrarGanador } from "./MostrarGanador";
 import "./SelectJugadores.css";
-import { useJugadores } from "../context/JugadoresContext";
+import { useJugadores } from "../hooks/useJugadores.js";
 
 
 export const SelectJugadores = () => {

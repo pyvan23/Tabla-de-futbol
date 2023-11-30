@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState,  useEffect } from "react";
 
-const JugadoresContext = createContext();
+export const JugadoresContext = createContext();
 
-export const useJugadores = () => useContext(JugadoresContext);
+
+
 
 export const JugadoresProvider = ({ children }) => {
+
   const [jugadores, setJugadores] = useState([]);
   const [debeActualizar, setDebeActualizar] = useState(false);
 

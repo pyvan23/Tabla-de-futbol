@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useNavigate } from "react-router-dom";
-import { useJugadores } from "../context/JugadoresContext";
+import { useJugadores } from "../hooks/useJugadores.js";
 import "./MostrarGanador.css";
 import { useEffect, useState } from "react";
 

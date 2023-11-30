@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Font+Name&display=swap');
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -10,52 +11,32 @@
     justify-content: center;
     z-index: 1000;
   }
-  
-  .modal-content {
-    background: #f4e3be; /* Color de fondo similar al de la carta */
-    padding: 1rem;
-    border-radius: 15px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  .modal {
+    background: url('https://www.zonadeaficionados.es/wp-content/uploads/2021/08/07-Carta-Oro-optimizada.jpg') no-repeat center center;
+    background-size: contain; /* Cambia a 'contain' para que se ajuste dentro del modal */
+    width: 600px; /* Ancho fijo para que la imagen de la carta se muestre completamente */
+    height: calc(100vh - 10rem); /* Altura para que la imagen de la carta se muestre completamente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    z-index: 1001;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     animation: modalOpen 0.5s ease-in-out;
-    display: flex; /* Establecer el contenedor principal como flex */
-    flex-direction: row; /* Alinear los elementos secundarios en fila */
+    overflow: hidden; /* Asegúrate de que todo el contenido extra se recorte */
+    border-radius: 15px; /* Opcional para bordes redondeados */
   }
   
-  .modal-content h3 {
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
-  
-  .modal-content p {
-    color: #333;
-    line-height: 1.5;
-    margin-bottom: 0.5rem;
-  }
-  
-  .jugador-imagen img {
-    max-width: 100%; /* Changed to take the full width of its container */
-    height: auto;
-    border-radius: 15px; /* Changed to match the modal's border-radius */
-    margin-bottom: 1rem;
-  }
-  
-  button {
-    background-color: #556b2f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+  .modal-close-icon {
+    position: absolute;
+    top: 1rem; /* Adjust this value to move the icon lower if needed */
+    right: 6rem; /* Adjust this value to move the icon to the left if needed */
+    font-size: 1.5rem; /* Size of the icon */
+    color: #555; /* Color of the icon */
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 1rem;
   }
   
-  button:hover {
-    background-color: #6b8f23;
-  }
   
   @keyframes modalOpen {
     from {
@@ -68,33 +49,20 @@
     }
   }
   
-  
-  .modal-content h3 {
-    color: #333; /* Color del texto */
-    margin-bottom: 0.5rem;
-  }
-  
+
   .modal-content p {
     color: #333; /* Color del texto */
     line-height: 1.5;
     margin-bottom: 0.5rem;
   }
   
-  .jugador-imagen img {
-    max-width: 100px; /* Ajusta esto según el tamaño deseado */
-    height: auto;
-    border-radius: 50%; /* Para hacer la imagen circular */
-    margin-bottom: 1rem;
-  }
   
-  button {
-    background-color: #556b2f; /* Color de fondo del botón, elige uno que combine */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 1rem;
+  
+  .modal-close-button {
+    /* ... tus estilos actuales para el botón cerrar ... */
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
   
   button:hover {
@@ -113,27 +81,16 @@
     }
   }
   
-  .modal-content {
-    animation: modalOpen 0.5s ease-in-out;
-  }
-  .carta-imagen {
-    max-width: 100%; /* Anchura máxima de su contenedor */
-    height: auto; /* Altura automática para mantener la proporción */
-    border-radius: 15px; /* Radio de borde para coincidir con el del modal */
-    /* Elimina margin-bottom si no es necesario */
-  }
-  .modal-image-container {
-    /* Contenedor para la imagen */
-    max-width: 100%; /* Ajusta esto como sea necesario */
-    display: flex; /* Habilitar flexbox */
-    justify-content: center; /* Centrar la imagen en el espacio disponible */
-  }
-  .modal-text {
-    /* Estilos para el contenedor de texto */
-    max-width: 40%; /* Ajusta esto como sea necesario */
-  }
-  .modal-body {
-    display: flex; /* Habilitar flexbox para el cuerpo del modal */
-    justify-content: space-between; /* Separar el texto y la imagen */
-    align-items: center; /* Centrar los elementos verticalmente */
-  }
+  .fontGold {
+    
+      font-family:  sans-serif; /* Reemplaza 'NombreDeLaFuente' con el nombre de la fuente real */
+      color: #503901; /* Este es un color dorado genérico, reemplázalo con el código de color exacto */
+      font-size: 28px; /* Ajusta el tamaño según sea necesario */
+      font-weight: bolder; /* Asumiendo que las letras son en negrita */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar un efecto elevado, si es necesario */
+    }
+  
+  
+  
+ 
+  

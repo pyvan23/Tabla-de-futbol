@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
   import { useState } from "react";
-import { useJugadores } from "../context/JugadoresContext";
+import { useJugadores } from "../hooks/useJugadores.js";
 import Modal from "./Modal";
 import "./Jugadores.css"; 
 

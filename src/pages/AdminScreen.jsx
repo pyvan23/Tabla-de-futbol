@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { SelectJugadores } from '../components/SelectJugadores';
-import { useJugadores } from '../context/JugadoresContext';
+import { useJugadores } from '../hooks/useJugadores.js';
 import { Header } from '../components/Header';
 
 export const AdminScreen = () => {
