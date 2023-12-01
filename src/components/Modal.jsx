@@ -15,9 +15,15 @@ const Modal = ({ isOpen, onClose, jugador }) => {
         onClick={e => e.stopPropagation()}
         style={{ backgroundImage: `url(${urlImagenFondo})` }}
       >
-
-    
         <h3 className="fontGold">{jugador.nombre}</h3>
+        <div className="data-point fontGold" style={{ top: '59%', left: '31%' }}>{34}</div>
+        <div className="data-point fontGold" style={{ top: '69%', left: '31%' }}>{jugador.puntos}</div>
+        <div className="data-point fontGold" style={{ top: '78%', left: '31%' }}>{33}</div>
+        <div className="data-point fontGold" style={{ top: '59%', left: '51%' }}>{26}</div>
+        <div className="data-point fontGold" style={{ top: '69%', left: '51%' }}>{66}</div>
+        <div className="data-point fontGold" style={{ top: '78%', left: '51%' }}>{34}</div>
+      
+      
         <IoClose className="modal-close-icon" onClick={onClose} />
       </div>
     </div>

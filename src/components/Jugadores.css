@@ -9,27 +9,38 @@
 
 .thead {
     cursor: pointer; /* Cambia el cursor a un puntero */
-    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+    transition: background-color 0.3s ease; 
+   
   }
   
   .thead:hover {
     background-color: rgb(177, 220, 167); /* Cambia el color de fondo al hacer hover */
   }
-  th, td {
-    border: 1px solid black;
-    padding: 8px;
-  }
+ /* Estilo de las celdas de la tabla */
+th, td {
+  padding: 12px 15px; /* Espaciado interno más generoso */
+  text-align: center; /* Centra el contenido de las celdas */
+  border-bottom: 1px solid #ddd; /* Línea divisoria sutil */
+}
   table {
-    margin: auto;
-    border-collapse: collapse;
+    width: 50%; /* Ocupa todo el ancho disponible */
+    margin: auto; /* Centra la tabla horizontalmente */
+    border-collapse: collapse; /* Elimina los espacios entre celdas */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
+    overflow: hidden; /* Esconde el contenido que se desborde (para bordes redondeados) */
+    border-radius: 8px; /* Bordes redondeados para la tabla */
   }
-  
+  /* Estilo del encabezado de la tabla */
+thead th {
+  background-color: #68ca6c; /* Color de fondo para las celdas del encabezado */
+  color: white; /* Texto en color blanco */
+  font-size: 16px; /* Tamaño de letra más grande */
+  letter-spacing: 0.5px; /* Espaciado entre caracteres */
+}
   
   th {
     background-color: #4CAF50;
+    transition: background-color 0.3s ease;
     color: white;
   }
-  
-  
-  
-
+ 
