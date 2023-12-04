@@ -35,7 +35,7 @@ export const Jugadores = () => {
           <div className="loader"></div> {/* Elemento visual para el indicador de carga */}
         </div>
       ) : (
-        <div className={`tabla-container ${cargando ? 'hidden' : 'visible'}`}>
+        <div className="contenedor-tabla">
         <table>
           <thead>
             <tr>

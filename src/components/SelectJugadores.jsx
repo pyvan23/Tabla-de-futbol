@@ -3,12 +3,13 @@ import { useState } from "react";
 import { MostrarGanador } from "./MostrarGanador";
 import "./SelectJugadores.css";
 import { useJugadores } from "../hooks/useJugadores.js";
+import { useNavigate } from "react-router-dom";
 
 
 export const SelectJugadores = () => {
   
-  const { jugadores } = useJugadores();
-  
+  const { jugadores,anadirPuntosAGanador } = useJugadores();
+  const navigate = useNavigate();
 
   const [equipoBlanco, setEquipoBlanco] = useState([]);
   const [equipoNegro, setEquipoNegro] = useState([]);
@@ -53,11 +54,18 @@ export const SelectJugadores = () => {
       !equipoBlanco.some((blanco) => blanco._id === jugador._id) &&
       !equipoNegro.some((negro) => negro._id === jugador._id)
   );
-  const seleccionarGanador = (equipo) => {
-    setGanador(equipo === "blanco" ? equipoBlanco : equipoNegro);
+  
+  const handleWin = async (equipo) => {
+    const equipoGanador = equipo === "blanco" ? equipoBlanco : equipoNegro;
+    setGanador(equipoGanador); // Establece el equipo ganador
+    equipoGanador.forEach(jugador => 
+    anadirPuntosAGanador(jugador._id, 3)
+    );
+    // Navegar a la ruta deseada después de un breve tiempo
+    setTimeout(() => navigate('/'), 1000);
   };
 
-console.log('equipo blanco',equipoBlanco);
+
 
   return (
     <div className="container">
@@ -134,13 +142,13 @@ console.log('equipo blanco',equipoBlanco);
           {/* Botones para seleccionar el equipo ganador */}
           <div className='winner-buttons'>
         <button 
-          onClick={() => seleccionarGanador('blanco')} 
+         onClick={() => handleWin('blanco')} 
           disabled={equipoBlanco.length !== 7}
         >
           Equipo Blanco Gana
         </button>
         <button 
-          onClick={() => seleccionarGanador('negro')} 
+           onClick={() => handleWin('negro')} 
           disabled={equipoNegro.length !== 7}
         >
           Equipo Negro Gana

@@ -49,11 +49,6 @@
     }
   }
   
-
- 
-  
-  
-  
   .modal-close-button {
     /* ... tus estilos actuales para el botón cerrar ... */
     position: absolute;
@@ -86,9 +81,17 @@
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar un efecto elevado, si es necesario */
     }
    
-    
-    
     .data-point {
       position: absolute;
      
+    }
+    .cara-imagen {
+      position: absolute;
+      top: 23.5%; /* Ajusta estos valores según sea necesario para alinear la imagen con el círculo */
+      left: 50%; /* Ajusta estos valores según sea necesario para alinear la imagen con el círculo */
+      transform: translate(-50%, -50%); /* Centra la imagen en el círculo */
+      height: 14rem; /* Altura de la imagen */
+      width: 12rem; /* Ancho de la imagen */
+    
+      object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin deformarse */
     }

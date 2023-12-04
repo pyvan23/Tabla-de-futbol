@@ -24,11 +24,13 @@ th, td {
 }
   table {
     width: 50%; /* Ocupa todo el ancho disponible */
-    margin: auto; /* Centra la tabla horizontalmente */
+    margin: 40px auto;/* Centra la tabla horizontalmente */
     border-collapse: collapse; /* Elimina los espacios entre celdas */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
     overflow: hidden; /* Esconde el contenido que se desborde (para bordes redondeados) */
     border-radius: 8px; /* Bordes redondeados para la tabla */
+    background-color: rgba(255, 255, 255, 0.5); 
+   
   }
   /* Estilo del encabezado de la tabla */
 thead th {
@@ -36,11 +38,16 @@ thead th {
   color: white; /* Texto en color blanco */
   font-size: 16px; /* Tamaño de letra más grande */
   letter-spacing: 0.5px; /* Espaciado entre caracteres */
+  
 }
   
   th {
     background-color: #4CAF50;
     transition: background-color 0.3s ease;
     color: white;
-  }
  
+   
+  }
+  .contenedor-tabla {
+    padding: 30px 0; 
+  }

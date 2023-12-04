@@ -1,4 +1,3 @@
-import "./App.css"; 
 import { JugadoresProvider } from "./context/JugadoresContext";
 import { AppRouter } from "./router/AppRouter";
 
