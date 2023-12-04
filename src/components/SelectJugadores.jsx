@@ -62,7 +62,7 @@ export const SelectJugadores = () => {
     anadirPuntosAGanador(jugador._id, 3)
     );
     // Navegar a la ruta deseada después de un breve tiempo
-    setTimeout(() => navigate('/'), 1000);
+    setTimeout(() => navigate('/'), 2000);
   };
 
 
