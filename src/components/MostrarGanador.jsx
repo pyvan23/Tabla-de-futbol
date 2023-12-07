@@ -2,10 +2,16 @@
 
 import "./MostrarGanador.css";
 
-export const MostrarGanador = ({ equipoGanador = [], equipo = "" }) => {
+export const MostrarGanador = ({ equipoGanador = [], equipo=[]  }) => {
+  
+
+
   return (
+    <>
+  {(equipoGanador.length === 0) ? "":
+   
     <div className="ganador-container">
-      <h3>{`Ganadores: ${equipo}`}</h3>
+      <h3>{`Ganadores: ${equipo[1]}`}</h3>
       <table>
         <thead>
           <tr>
@@ -20,6 +26,7 @@ export const MostrarGanador = ({ equipoGanador = [], equipo = "" }) => {
           ))}
         </tbody>
       </table>
-    </div>
+    </div>}
+    </>
   );
 };

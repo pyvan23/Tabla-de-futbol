@@ -2,28 +2,31 @@
 
 
 /* Estilo general para la página */
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
+.bodySlectJugadores {
+  font-family: 'Roboto', sans-serif;
+  background: #e7f0fd;
+  margin: 0;
+  
+}
+
   
   /* Estilo para el contenedor principal */
   .container {
     max-width: 1200px;
-    margin: auto;
+    margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ddd;
+    background-color: #fff;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave para resaltar el contenedor */
+    display: flex;
     flex-direction: column; /* Alinea los elementos en columna */
   }
+  
   /* Estilo para los encabezados */
   h2 {
-    color: #333;
+    color: #495057; /* Un color más suave que el negro puro */
     text-align: center;
+    font-weight: 700; /* Roboto fuente en negrita */
   }
   .player-item {
     display: flex;
@@ -61,27 +64,41 @@ body {
   
   /* Estilo para las listas desplegables */
   select {
-    width: 100%; 
-    max-height: 150px; /* Limita la altura máxima */
-    overflow-y: auto; /* Permite hacer scroll dentro de la lista si es necesario */
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #ced4da; /* Borde más definido */
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-family: 'Lato', sans-serif; /* Lato es una fuente más limpia para los dropdowns */
+    font-size: 16px; /* Tamaño de fuente más grande para una mejor legibilidad */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); /* Sombra ligera para profundidad */
+    margin-bottom: 20px; /* Más margen para separar de otros elementos */
+    cursor: pointer;
   }
   
+  select:hover {
+    border-color: #adb5bd; /* Cambio de color al pasar el ratón */
+  }
   
   
   /* Estilo para los botones */
   button {
-    padding: 8px 16px;
-    margin-right: 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
+    background-color: #007bff; /* Color primario más saturado */
+    color: #ffffff;
+    font-size: 16px; /* Tamaño de fuente unificado */
+    font-weight: 700; /* Fuente en negrita para los botones */
     cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    transition: background-color 0.3s ease;
-    font-weight: 700; 
+    transition: all 0.2s ease-in-out; /* Transición más suave para los efectos */
+    margin-right: 10px; /* Espaciado uniforme */
   }
   
-
+  button:hover {
+    background-color: #0056b3; /* Oscurece el botón al pasar el ratón para un feedback inmediato */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para 'levantar' el botón */
+  }
   
   /* Estilo para la lista de jugadores agregados */
   .player-list {

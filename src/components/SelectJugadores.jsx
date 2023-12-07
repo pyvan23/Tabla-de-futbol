@@ -4,6 +4,9 @@ import { MostrarGanador } from "./MostrarGanador";
 import "./SelectJugadores.css";
 import { useJugadores } from "../hooks/useJugadores.js";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 export const SelectJugadores = () => {
@@ -18,25 +21,34 @@ export const SelectJugadores = () => {
   const [selectedNegro, setSelectedNegro] = useState("");
 
   
-  
+  const notify = (message) => toast.warn(message, {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 
   const handleSelectChange = (event, equipo) => {
     const selectedPlayer = jugadores.find(
       (j) => j.nombre === event.target.value
     );
     if (selectedPlayer) {
-      if (equipo === "blanco") {
+      if (equipo === "blanco" && equipoBlanco.length < 7) {
         setEquipoBlanco([...equipoBlanco, selectedPlayer]);
-
         setSelectedBlanco(""); // Resetea el valor seleccionado del dropdown
-        
-      } else {
+      } else if (equipo === "negro" && equipoNegro.length < 7) {
         setEquipoNegro([...equipoNegro, selectedPlayer]);
         setSelectedNegro(""); // Resetea el valor seleccionado del dropdown
+      } else {
+        // Llama a notify si el equipo ya tiene 7 jugadores
+        notify(`El equipo ${equipo} ya tiene 7 jugadores.`);
       }
     }
   };
-
+  
   const quitarJugador = (jugadorId, equipo) => {
     if (equipo === "blanco") {
       setEquipoBlanco(
@@ -64,12 +76,14 @@ export const SelectJugadores = () => {
     // Navegar a la ruta deseada después de un breve tiempo
     setTimeout(() => navigate('/'), 2000);
   };
+  
 
 
 
   return (
-    <div className="container">
-      <h2>Forma tus Equipos</h2>
+    <div className="container  ">
+      <ToastContainer />
+    
 
       <div className="team-selection">
         <div className="team-section">
@@ -108,7 +122,7 @@ export const SelectJugadores = () => {
           <div className="soccer-field">
             {equipoNegro.map((jugador, index) => (
               <div
-                key={jugador.id}
+              key={jugador._id}
                 className={`player negro player-${index % 7}`}
                 onClick={() => quitarJugador(jugador._id, "negro")}
               >
@@ -154,9 +168,10 @@ export const SelectJugadores = () => {
           Equipo Negro Gana
         </button>
       </div>
+      
 
       {/* Componente para mostrar el equipo ganador */}
-      {equipoGanador && <MostrarGanador equipo={equipoGanador === equipoBlanco ? 'blanco' : 'negro'} equipoGanador={equipoGanador === equipoBlanco ? equipoBlanco : equipoNegro} />}
+      { <MostrarGanador equipoGanador={equipoGanador} equipo={equipoGanador === equipoBlanco ? [equipoBlanco,'blanco'] : [equipoNegro,'negro']} />}
     </div>
   );
 };

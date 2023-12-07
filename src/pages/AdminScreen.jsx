@@ -1,15 +1,10 @@
 /* eslint-disable react/prop-types */
-import { SelectJugadores } from '../components/SelectJugadores';
-import { Header } from '../components/Header';
+import { SelectJugadores } from "../components/SelectJugadores";
 
 export const AdminScreen = () => {
-  
-  
- 
   return (
     <>
-    <Header />
-    <SelectJugadores />
+      <SelectJugadores />
     </>
   );
 };
