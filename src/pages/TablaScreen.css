@@ -2,7 +2,7 @@ body {
   background-image: url("https://i0.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2023/01/futbol.jpg?fit=849%2C569&ssl=1");
   background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   min-height: 100vh; /* Asegura que el fondo cubra al menos la altura de la ventana gráfica */
-  width: 100vw;
+  
 }

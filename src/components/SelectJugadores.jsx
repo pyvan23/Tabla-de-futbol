@@ -81,11 +81,11 @@ export const SelectJugadores = () => {
 
 
   return (
-    <div className="container  ">
+    <div className="container   ">
       <ToastContainer />
     
 
-      <div className="team-selection">
+      <div className="team-selection ">
         <div className="team-section">
           <label htmlFor="selectBlanco">Equipo Blanco:</label>
           <select

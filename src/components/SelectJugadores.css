@@ -1,21 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@400;700&display=swap');
 
-
-/* Estilo general para la página */
-.bodySlectJugadores {
-  font-family: 'Roboto', sans-serif;
-  background: #e7f0fd;
-  margin: 0;
-  
-}
-
   
   /* Estilo para el contenedor principal */
   .container {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave para resaltar el contenedor */
     display: flex;
@@ -38,7 +29,7 @@
   
   /* Estilo para las secciones de cada equipo */
   .team-section {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   .team-blanco, .team-negro {
     background-color: #f8f9fa;
@@ -68,12 +59,13 @@
     padding: 10px 15px;
     border: 2px solid #ced4da; /* Borde más definido */
     border-radius: 4px;
-    background-color: #ffffff;
+   
     font-family: 'Lato', sans-serif; /* Lato es una fuente más limpia para los dropdowns */
     font-size: 16px; /* Tamaño de fuente más grande para una mejor legibilidad */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); /* Sombra ligera para profundidad */
     margin-bottom: 20px; /* Más margen para separar de otros elementos */
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
   }
   
   select:hover {
@@ -120,6 +112,7 @@
   
  
   .soccer-field-container {
+   
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -129,6 +122,7 @@
   
 
   .soccer-field {
+    
     position: relative;
     background-image: url("https://i.pinimg.com/564x/92/cc/ae/92ccaeb5c94450914dffed88eb159aac.jpg");
     background-size: contain;
