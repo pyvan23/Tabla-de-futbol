@@ -3,9 +3,6 @@ import { createContext, useState,  useEffect } from "react";
 
 export const JugadoresContext = createContext();
 
-
-
-
 export const JugadoresProvider = ({ children }) => {
 
   const [jugadores, setJugadores] = useState([]);

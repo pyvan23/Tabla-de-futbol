@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@400;700&display=swap');
+
 
   
   /* Estilo para el contenedor principal */
@@ -17,7 +17,7 @@
   h2 {
     color: #495057; /* Un color más suave que el negro puro */
     text-align: center;
-    font-weight: 700; /* Roboto fuente en negrita */
+    font-weight: 900; /* Roboto fuente en negrita */
   }
   .player-item {
     display: flex;
@@ -34,7 +34,7 @@
   .team-blanco, .team-negro {
     background-color: #f8f9fa;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 20px; 
   }
   /* Diferenciación de colores para cada equipo */
@@ -46,26 +46,21 @@
     border-left: 4px solid #343a40;
   }
   
-  /* Estilo para los títulos de cada equipo */
-  .team-title {
-    margin: 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-  }
   
   /* Estilo para las listas desplegables */
   select {
     width: 100%;
     padding: 10px 15px;
     border: 2px solid #ced4da; /* Borde más definido */
-    border-radius: 4px;
+    border-radius: 15px;
+     height: auto;
    
     font-family: 'Lato', sans-serif; /* Lato es una fuente más limpia para los dropdowns */
-    font-size: 16px; /* Tamaño de fuente más grande para una mejor legibilidad */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); /* Sombra ligera para profundidad */
+    font-size: 12px; /* Tamaño de fuente más grande para una mejor legibilidad */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 1); /* Sombra ligera para profundidad */
     margin-bottom: 20px; /* Más margen para separar de otros elementos */
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.4);
   }
   
   select:hover {
@@ -88,8 +83,8 @@
   }
   
   button:hover {
-    background-color: #0056b3; /* Oscurece el botón al pasar el ratón para un feedback inmediato */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para 'levantar' el botón */
+    background-color: #757f8a; /* Oscurece el botón al pasar el ratón para un feedback inmediato */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para 'levantar' el botón */
   }
   
   /* Estilo para la lista de jugadores agregados */
@@ -112,7 +107,6 @@
   
  
   .soccer-field-container {
-   
     display: flex;
     justify-content: center;
     gap: 20px;

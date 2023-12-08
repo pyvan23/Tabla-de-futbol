@@ -8,12 +8,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
 export const SelectJugadores = () => {
   
   const { jugadores,anadirPuntosAGanador } = useJugadores();
   const navigate = useNavigate();
-
+  
+  
   const [equipoBlanco, setEquipoBlanco] = useState([]);
   const [equipoNegro, setEquipoNegro] = useState([]);
   const [equipoGanador, setGanador] = useState([]); // Estado para almacenar el equipo ganador
@@ -31,6 +31,7 @@ export const SelectJugadores = () => {
     progress: undefined,
   });
 
+  
   const handleSelectChange = (event, equipo) => {
     const selectedPlayer = jugadores.find(
       (j) => j.nombre === event.target.value
@@ -74,20 +75,19 @@ export const SelectJugadores = () => {
     anadirPuntosAGanador(jugador._id, 3)
     );
     // Navegar a la ruta deseada después de un breve tiempo
-    setTimeout(() => navigate('/'), 2000);
+    setTimeout(() => navigate('/'), 3000);
   };
   
+  const equiposCompletos = equipoBlanco.length === 7 && equipoNegro.length === 7;
 
 
 
   return (
     <div className="container   ">
       <ToastContainer />
-    
-
       <div className="team-selection ">
         <div className="team-section">
-          <label htmlFor="selectBlanco">Equipo Blanco:</label>
+          <label htmlFor="selectBlanco" >Equipo Blanco:</label>
           <select
             id="selectBlanco"
             value={selectedBlanco} // Usa el estado para controlar el valor
@@ -157,13 +157,13 @@ export const SelectJugadores = () => {
           <div className='winner-buttons'>
         <button 
          onClick={() => handleWin('blanco')} 
-          disabled={equipoBlanco.length !== 7}
+          disabled={!equiposCompletos}
         >
           Equipo Blanco Gana
         </button>
         <button 
            onClick={() => handleWin('negro')} 
-          disabled={equipoNegro.length !== 7}
+          disabled={!equiposCompletos}
         >
           Equipo Negro Gana
         </button>
