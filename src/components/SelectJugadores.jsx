@@ -1,18 +1,23 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { MostrarGanador } from "./MostrarGanador";
+import { DayPicker } from 'react-day-picker';
 import "./SelectJugadores.css";
 import { useJugadores } from "../hooks/useJugadores.js";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import 'react-day-picker/dist/style.css';
+import { es } from 'date-fns/locale'; 
 
 export const SelectJugadores = () => {
   
   const { jugadores,anadirPuntosAGanador } = useJugadores();
   const navigate = useNavigate();
   
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [selectedDay, setSelectedDay] = useState(new Date());
+
   
   const [equipoBlanco, setEquipoBlanco] = useState([]);
   const [equipoNegro, setEquipoNegro] = useState([]);
@@ -30,6 +35,14 @@ export const SelectJugadores = () => {
     draggable: true,
     progress: undefined,
   });
+  const handleDayChange = (date) => {
+    setSelectedDay(date);
+    setDatePickerVisibility(false); // Ocultar el date picker después de seleccionar una fecha
+  };
+
+  const toggleDatePicker = () => {
+    setDatePickerVisibility(!isDatePickerVisible);
+  };
 
   
   const handleSelectChange = (event, equipo) => {
@@ -85,6 +98,18 @@ export const SelectJugadores = () => {
   return (
     <div className="container   ">
       <ToastContainer />
+       {/* Botón para mostrar el date picker */}
+       <div className="date-picker-button-container">
+        <button onClick={toggleDatePicker}  className="date-button">
+          {selectedDay.toLocaleDateString('es-ES')}
+        </button>
+      </div>
+
+      {isDatePickerVisible && (
+        <div className="date-picker-container">
+          <DayPicker mode="single" selected={selectedDay} onSelect={handleDayChange}  locale={es} />
+        </div>
+      )}
       <div className="team-selection ">
         <div className="team-section">
           <label htmlFor="selectBlanco" >Equipo Blanco:</label>

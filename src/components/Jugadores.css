@@ -41,13 +41,7 @@ thead th {
   
 }
   
-  th {
-    background-color: #4CAF50;
-    transition: background-color 0.3s ease;
-    color: white;
  
-   
-  }
   .contenedor-tabla {
     padding: 50px 0; 
   }

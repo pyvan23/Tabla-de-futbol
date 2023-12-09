@@ -31,8 +31,8 @@ export const Jugadores = () => {
   return (
     <>
       {cargando ? (
-        <div className="loading-container">
-          <div className="loader"></div> {/* Elemento visual para el indicador de carga */}
+        <div >
+          <div >Loding...</div> {/* Elemento visual para el indicador de carga */}
         </div>
       ) : (
         <div className="contenedor-tabla">

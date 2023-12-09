@@ -160,3 +160,38 @@
 .negro.player-4 { top: 45%; left: 30%; } /* Mediocampo derecho */
 .negro.player-5 { top: 25%; left: 70%; } /* Delantero central */
 .negro.player-6 { top: 25%; left: 30%; } /* Delantero izquierdo */
+
+.date-picker-button-container {
+  position: absolute;
+  top: 10%; /* Ajusta según la posición exacta que desees */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5; /* Asegúrate de que el botón esté por encima de las canchas */
+
+  
+}
+
+.date-picker-container {
+  background-color: #eee;
+  position: absolute;
+  top: 50%; /* Ajusta según la posición exacta que desees */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Asegúrate de que el date picker esté por encima del botón */
+}
+.date-button {
+ 
+  background-color: #8f9174; /* El color del texto, elige uno que combine con el fondo */
+  border: 2px solid #dee2e6; /* Un borde sutil */
+  padding: 5px 10px;
+  border-radius: 5px; /* Esquinas redondeadas */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.9); /* Una ligera sombra */
+  transition: all 0.2s ease-in-out; /* Una transición suave para los efectos de hover */
+  font-size: 0.9em; /* Un tamaño de fuente más pequeño para ser más sutil */
+  opacity: 0.8; /* Una opacidad más baja para un aspecto más sutil */
+}
+
+.date-button:hover {
+  opacity: 1; /* Opacidad completa al pasar el ratón por encima */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15); /* Sombra más pronunciada al pasar el ratón por encima */
+}
