@@ -1,6 +1,4 @@
 
-
-  
   /* Estilo para el contenedor principal */
   .container {
     max-width: 1200px;
@@ -8,9 +6,9 @@
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave para resaltar el contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     display: flex;
-    flex-direction: column; /* Alinea los elementos en columna */
+    flex-direction: column;
   }
   
   /* Estilo para los encabezados */
@@ -20,11 +18,11 @@
     font-weight: 900; /* Roboto fuente en negrita */
   }
   .player-item {
-    display: flex;
-    justify-content: space-between; /* Separa el nombre y el botón */
-    align-items: center;
-    width: 100%; 
-    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    background-color: #f8f9fa;
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   
   /* Estilo para las secciones de cada equipo */
@@ -70,17 +68,20 @@
   
   /* Estilo para los botones */
   button {
-    padding: 10px 20px;
+    size: 10px;
+    padding: 0.625rem 1.25rem; /* Usa rem para tamaños relativos */
     border: none;
     border-radius: 4px;
-    background-color: #007bff; /* Color primario más saturado */
+    background-color: #3cae42; /* Color primario más saturado */
     color: #ffffff;
-    font-size: 16px; /* Tamaño de fuente unificado */
-    font-weight: 700; /* Fuente en negrita para los botones */
+    font-size: 0.6rem; /* Tamaño de fuente relativo */
+    font-weight: 50px; /* Fuente en negrita para los botones */
     cursor: pointer;
     transition: all 0.2s ease-in-out; /* Transición más suave para los efectos */
-    margin-right: 10px; /* Espaciado uniforme */
+    margin-right: 20px; /* Espaciado uniforme */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); /* Sombra sutil para profundidad */
   }
+  
   
   button:hover {
     background-color: #757f8a; /* Oscurece el botón al pasar el ratón para un feedback inmediato */
@@ -113,7 +114,6 @@
     width: 100%;
   }
   
-  
 
   .soccer-field {
     
@@ -122,7 +122,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 45%; /* Aumentar el ancho */
+    width:40%; /* Aumentar el ancho */
     height: calc(200px + 4cm);
   }
   /* Ubicación de los jugadores en el campo */
@@ -161,15 +161,6 @@
 .negro.player-5 { top: 25%; left: 70%; } /* Delantero central */
 .negro.player-6 { top: 25%; left: 30%; } /* Delantero izquierdo */
 
-.date-picker-button-container {
-  position: absolute;
-  top: 10%; /* Ajusta según la posición exacta que desees */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5; /* Asegúrate de que el botón esté por encima de las canchas */
-
-  
-}
 
 .date-picker-container {
   background-color: #eee;
@@ -194,4 +185,60 @@
 .date-button:hover {
   opacity: 1; /* Opacidad completa al pasar el ratón por encima */
   box-shadow: 0 4px 6px rgba(0,0,0,0.15); /* Sombra más pronunciada al pasar el ratón por encima */
+}
+
+
+
+.soccer-fields-and-formations {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  /* Additional styling as needed */
+}
+
+.team-formation {
+  display: flex;
+  flex-direction: column;
+  /* Align items to the start or center depending on your design preference */
+  align-items: flex-start;
+  padding: 1px;
+  /* Additional styling as needed */
+  
+}
+
+.player-item.blanco {
+  /* Adjust the styling here to match your design */
+  margin: 5px 5px;
+  /* You can remove the background-color if you want to eliminate the white blocks */
+  background-color: white;
+  font-size: smaller;
+
+}
+.player-item.negro{
+    /* Adjust the styling here to match your design */
+    margin: 5px 5px;
+    /* You can remove the background-color if you want to eliminate the white blocks */
+    background-color: black;
+    color: white;
+    font-size: smaller;
+
+}
+/* Mobile view adjustments */
+@media (max-width: 768px) { /* or whichever breakpoint suits your design */
+  .soccer-field-container {
+    display: none; /* This will hide the soccer fields on mobile */
+  }
+
+  /* Ensure that the team formation lists are still displayed */
+  .team-formation {
+    display: flex;
+    justify-content: center; /* or 'block', depending on how you want to display the list */
+  }
+
+  /* Additional mobile styling adjustments as needed */
+  /* For example, adjust the layout or font size of the player list */
+  .player-item {
+    font-size: smaller; /* Example to make text smaller */
+    /* other styles */
+  }
 }
