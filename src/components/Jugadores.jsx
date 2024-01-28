@@ -21,7 +21,7 @@ export const Jugadores = () => {
   }, [jugadores]);// Estado para manejar si la carga está en progreso
     
  
-
+console.log(jugadores);
   const openModalWithJugador = jugador => {
     setSelectedJugador(jugador);
     setModalIsOpen(true);

@@ -173,10 +173,10 @@
 .date-button {
  
   background-color: #8f9174; /* El color del texto, elige uno que combine con el fondo */
-  border: 2px solid #dee2e6; /* Un borde sutil */
+  border: 1px solid #dee2e6; /* Un borde sutil */
   padding: 5px 10px;
-  border-radius: 5px; /* Esquinas redondeadas */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.9); /* Una ligera sombra */
+  border-radius: 2px; /* Esquinas redondeadas */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Una ligera sombra */
   transition: all 0.2s ease-in-out; /* Una transición suave para los efectos de hover */
   font-size: 0.9em; /* Un tamaño de fuente más pequeño para ser más sutil */
   opacity: 0.8; /* Una opacidad más baja para un aspecto más sutil */

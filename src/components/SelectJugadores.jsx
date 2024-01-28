@@ -120,8 +120,8 @@ export const SelectJugadores = () => {
       <div className="container">
         <ToastContainer />
         {/* Botón para mostrar el date picker */}
-        <div className="date-picker-button-container">
-        <span>Seleccione fecha del encuentro: </span>
+        <div >
+        <span style={{fontFamily:'sans-serif'}}>Seleccione fecha del encuentro: </span>
           <button onClick={toggleDatePicker} className="date-button">
           {selectedDay && selectedDay.toLocaleDateString("es-ES")}
           </button>
@@ -160,7 +160,7 @@ export const SelectJugadores = () => {
             {/* Real-time formation display for team Blanco */}
             <div className="team-formation blanco">
               {equipoBlanco.map((jugador, index) => (
-                <div key={jugador._id} className="player-item blanco">
+                <div key={jugador._id}  style={{cursor:'pointer'}}   onClick={() => quitarJugador(jugador._id, "blanco")}className="player-item blanco">
                   {index + 1}. {jugador.nombre} {/* Number added before the name */}
                 </div>
               ))}
@@ -214,7 +214,7 @@ export const SelectJugadores = () => {
             {/* Real-time formation display for team Negro */}
             <div className="team-formation negro">
               {equipoNegro.map((jugador, index) => (
-                <div key={jugador._id} className="player-item negro">
+                <div key={jugador._id} className="player-item negro" style={{cursor:'pointer'}} onClick={() => quitarJugador(jugador._id, "negro")}>
                   {index + 1}. {jugador.nombre} {/* Number added before the name */}
                 </div>
               ))}
