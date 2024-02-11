@@ -5,8 +5,10 @@ import html2canvas from 'html2canvas';
 export const AdminScreen = () => {
 
   const captureScreen = () => {
+    const imgElement = document.querySelector('#photo');
     html2canvas(document.body).then((canvas) => {
-      let imgData = canvas.toDataURL('image/png');
+      let imgData = canvas.toDataURL(imgElement.html2canvas);
+      console.log(imgElement);
       downloadImage(imgData);
     });
   }
