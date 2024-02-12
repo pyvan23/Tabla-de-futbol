@@ -117,7 +117,8 @@ export const SelectJugadores = () => {
 
   return (
     <>
-      <div className="container" id="photo">
+    <div  id="photo">
+      <div className="container" >
         <ToastContainer />
         {/* Botón para mostrar el date picker */}
         <div >
@@ -250,6 +251,7 @@ export const SelectJugadores = () => {
             }
           />
         }
+      </div>
       </div>
     </>
   );
