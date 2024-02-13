@@ -17,7 +17,7 @@ export const SelectJugadores = () => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const datePickerRef = useRef(); // Crea la referencia aquí para poder usarla en el componente DayPicker
   const [selectedDay, setSelectedDay] = useState(new Date());
-
+  const [numJugadores, setNumJugadores] = useState(5); // Estado para la cantidad
   const [equipoBlanco, setEquipoBlanco] = useState([]);
   const [equipoNegro, setEquipoNegro] = useState([]);
   const [equipoGanador, setGanador] = useState([]); // Estado para almacenar el equipo ganador
@@ -71,15 +71,22 @@ export const SelectJugadores = () => {
       (j) => j.nombre === event.target.value
     );
     if (selectedPlayer) {
-      if (equipo === "blanco" && equipoBlanco.length < 7) {
-        setEquipoBlanco([...equipoBlanco, selectedPlayer]);
-        setSelectedBlanco(""); // Resetea el valor seleccionado del dropdown
-      } else if (equipo === "negro" && equipoNegro.length < 7) {
-        setEquipoNegro([...equipoNegro, selectedPlayer]);
-        setSelectedNegro(""); // Resetea el valor seleccionado del dropdown
-      } else {
-        // Llama a notify si el equipo ya tiene 7 jugadores
-        notify(`El equipo ${equipo} ya tiene 7 jugadores.`);
+      if (equipo === "blanco") {
+        if (equipoBlanco.length < numJugadores) {
+          setEquipoBlanco([...equipoBlanco, selectedPlayer]);
+          setSelectedBlanco(""); // Resetea el valor seleccionado del dropdown
+        } else {
+          // Muestra el cartel si el equipo ya tiene el máximo de jugadores
+          notify(`El equipo ${equipo} ya tiene ${numJugadores} jugadores.`);
+        }
+      } else if (equipo === "negro") {
+        if (equipoNegro.length < numJugadores) {
+          setEquipoNegro([...equipoNegro, selectedPlayer]);
+          setSelectedNegro(""); // Resetea el valor seleccionado del dropdown
+        } else {
+          // Muestra el cartel si el equipo ya tiene el máximo de jugadores
+          notify(`El equipo ${equipo} ya tiene ${numJugadores} jugadores.`);
+        }
       }
     }
   };
@@ -120,6 +127,16 @@ export const SelectJugadores = () => {
     <div  id="photo">
       <div className="container" >
         <ToastContainer />
+        <select style={{width:'400px'}}
+      id="selectJugadores"
+      value={numJugadores}
+  onChange={(e) => setNumJugadores(parseInt(e.target.value))}
+    >
+      <option value="5">5 Jugadores</option>
+      <option value="7">7 Jugadores</option>
+      <option value="9">9 Jugadores</option>
+      <option value="11">11 Jugadores</option>
+    </select>
         {/* Botón para mostrar el date picker */}
         <div >
         <span style={{fontFamily:'sans-serif'}}>Seleccione fecha del encuentro: </span>
@@ -127,6 +144,7 @@ export const SelectJugadores = () => {
           {selectedDay && selectedDay.toLocaleDateString("es-ES")}
           </button>
         </div>
+        
 
         {isDatePickerVisible && (
           <div  ref={datePickerRef} className="date-picker-container">
@@ -137,9 +155,13 @@ export const SelectJugadores = () => {
               onSelect={handleDayChange}
               locale={es}
             />
+            
           </div>
         )}
+       
+        
         <div className="team-selection ">
+          
           <div className="team-section">
             <select
               id="selectBlanco"
