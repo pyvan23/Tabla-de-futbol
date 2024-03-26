@@ -151,7 +151,7 @@ export const SelectJugadores = () => {
           <div  ref={datePickerRef} className="date-picker-container">
             <DayPicker
               mode="single"
-            
+            style={{DayPicker: {backgroundColor: 'white'}}}
               selected={selectedDay}
               onSelect={handleDayChange}
               locale={es}

@@ -2,10 +2,6 @@ import { Route, Routes } from "react-router-dom"
 import { TablaScreen } from "../pages/TablaScreen"
 import { AdminScreen } from "../pages/AdminScreen"
 
-
-
-
-
 export const AppRouter = () => {
   return (
     <>
