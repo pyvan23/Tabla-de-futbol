@@ -9,7 +9,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-day-picker/dist/style.css";
 import { es } from "date-fns/locale";
-import PlayerStats from "./PlayerStats.jsx";
+import { PlayerStats } from "./PlayerStats.jsx";
+
+
+
 
 export const SelectJugadores = () => {
   const { jugadores, anadirPuntosAGanador } = useJugadores();
