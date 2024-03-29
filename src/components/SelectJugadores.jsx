@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-day-picker/dist/style.css";
 import { es } from "date-fns/locale";
 import { PlayerStats } from "./PlayerStats.jsx";
+import { Doughnut } from 'react-chartjs-2';
 
 
 
@@ -27,7 +28,8 @@ export const SelectJugadores = () => {
   const [equipoGanador, setGanador] = useState([]); // Estado para almacenar el equipo ganador
   const [selectedBlanco, setSelectedBlanco] = useState("");
   const [selectedNegro, setSelectedNegro] = useState("");
-
+  //const [data, setData] = useState([20, 10]);
+  //setData(100);
   const notify = (message) =>
     toast.warn(message, {
       position: "top-center",
@@ -126,6 +128,8 @@ export const SelectJugadores = () => {
   const equiposCompletos =
     equipoBlanco.length === 7 && equipoNegro.length === 7;
 
+    
+
   return (
     <>
     <div  id="photo">
@@ -193,6 +197,7 @@ export const SelectJugadores = () => {
               ))}
             </div>
           </div>
+          <Doughnut data={data} />
 
           <div className="soccer-field-container">
             <div className="soccer-field">
@@ -206,17 +211,17 @@ export const SelectJugadores = () => {
                 </div>
               ))}
             </div>
-
             <div className="soccer-field">
               {equipoNegro.map((jugador, index) => (
                 <div
-                  key={jugador._id}
-                  className={`player negro player-${index % 7}`}
-                  onClick={() => quitarJugador(jugador._id, "negro")}
+                key={jugador._id}
+                className={`player negro player-${index % 7}`}
+                onClick={() => quitarJugador(jugador._id, "negro")}
                 >
                   {jugador.nombre}
                 </div>
               ))}
+            
             </div>
           </div>
           <PlayerStats/>
