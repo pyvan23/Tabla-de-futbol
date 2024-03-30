@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-day-picker/dist/style.css";
 import { es } from "date-fns/locale";
 import { PlayerStats } from "./PlayerStats.jsx";
-import { Doughnut } from 'react-chartjs-2';
+
 
 
 
@@ -197,7 +197,7 @@ export const SelectJugadores = () => {
               ))}
             </div>
           </div>
-          <Doughnut data={data} />
+        
 
           <div className="soccer-field-container">
             <div className="soccer-field">

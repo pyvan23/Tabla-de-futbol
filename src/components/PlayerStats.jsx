@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
+import { Doughnut } from 'react-chartjs-2';
 
-
-export const PlayerStats = () => {
+export const PlayerStats = ({data=120}) => {
   return (
-    <div>PlayerStats</div>
+    <Doughnut data={data} />
   )
 }

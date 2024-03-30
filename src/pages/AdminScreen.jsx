@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+ /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { SelectJugadores } from "../components/SelectJugadores";
 import html2canvas from 'html2canvas';
