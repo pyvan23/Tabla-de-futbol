@@ -125,30 +125,36 @@ export const SelectJugadores = () => {
 
   const equiposCompletos =
     equipoBlanco.length === 7 && equipoNegro.length === 7;
-    const onDragEnd = (result) => {
-      const { source, destination } = result;
-    
-      // Si no hay destino o el elemento se soltó en la misma posición, no hacer nada
-      if (!destination || (source.droppableId === destination.droppableId && source.index === destination.index)) {
-        return;
-      }
-    
-      // Verifica que el id del Droppable origen corresponda con el equipo correcto
-      if (source.droppableId === "campoBlanco") {
-        // Lógica para reordenar equipoBlanco
-        const newEquipoBlanco = Array.from(equipoBlanco);
-        const [movedItem] = newEquipoBlanco.splice(source.index, 1);
-        newEquipoBlanco.splice(destination.index, 0, movedItem);
-        setEquipoBlanco(newEquipoBlanco);
-      } else if (source.droppableId === "campoNegro") {
-        // Lógica para reordenar equipoNegro
-        const newEquipoNegro = Array.from(equipoNegro);
-        const [movedItem] = newEquipoNegro.splice(source.index, 1);
-        newEquipoNegro.splice(destination.index, 0, movedItem);
-        setEquipoNegro(newEquipoNegro);
-      }
-    };
-    
+  const onDragEnd = (result) => {
+    const { source, destination } = result;
+    console.log(result);
+
+    // Si no hay destino o el elemento se soltó en la misma posición, no hacer nada
+    if (
+      !destination ||
+      (source.droppableId === destination.droppableId &&
+        source.index === destination.index)
+    ) {
+      return;
+    }
+
+    // Verifica que el id del Droppable origen corresponda con el equipo correcto
+    if (source.droppableId === "campoBlanco") {
+      // Lógica para reordenar equipoBlanco
+      const newEquipoBlanco = Array.from(equipoBlanco);
+      const [movedItem] = newEquipoBlanco.splice(source.index, 1);
+      newEquipoBlanco.splice(destination.index, 0, movedItem);
+      setEquipoBlanco(newEquipoBlanco);
+    } else if (source.droppableId === "campoNegro") {
+      console.log(source.droppableId);
+      // Lógica para reordenar equipoNegro
+      const newEquipoNegro = Array.from(equipoNegro);
+      const [movedItem] = newEquipoNegro.splice(source.index, 1);
+      newEquipoNegro.splice(destination.index, 0, movedItem);
+      setEquipoNegro(newEquipoNegro);
+    }
+  };
+
   return (
     <>
       <DragDropContext onDragEnd={onDragEnd}>
@@ -217,58 +223,77 @@ export const SelectJugadores = () => {
                       className="player-item blanco"
                     >
                       {index + 1}. {jugador.nombre}{" "}
-     
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="soccer-field-container">
-              <Droppable droppableId="campoBlanco" direction="horizontal">
-  {(provided) => (
-    <div ref={provided.innerRef} {...provided.droppableProps} className="soccer-field blanco">
-      {equipoBlanco.map((jugador, index) => (
-        <Draggable key={jugador._id} draggableId={jugador._id} index={index}>
-          {(provided) => (
-            <div
-              ref={provided.innerRef}
-              {...provided.draggableProps}
-              {...provided.dragHandleProps}
-              className={`player blanco player-${index % numJugadores}`}
-            >
-              {jugador.nombre}
-            </div>
-          )}
-        </Draggable>
-      ))}
-      {provided.placeholder}
-    </div>
-  )}
-</Droppable>
+                <Droppable droppableId="campoBlanco" direction="horizontal">
+                  {(provided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                      className="soccer-field blanco"
+                    >
+                      {equipoBlanco.map((jugador, index) => (
+                        <Draggable
+                          key={jugador._id}
+                          draggableId={jugador._id}
+                          index={index}
+                        >
+                          {(provided) => (
+                            <div
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              className={`player blanco player-${
+                                index % numJugadores
+                              }`}
+                            >
+                              {jugador.nombre}
+                            </div>
+                          )}
+                        </Draggable>
+                      ))}
+                      {provided.placeholder}
+                    </div>
+                  )}
+                </Droppable>
 
-<Droppable droppableId="campoNegro" direction="horizontal">
-  {(provided) => (
-    <div ref={provided.innerRef} {...provided.droppableProps} className="soccer-field negro">
-      {equipoNegro.map((jugador, index) => (
-        <Draggable key={jugador._id} draggableId={jugador._id} index={index}>
-          {(provided) => (
-            <div
-              ref={provided.innerRef}
-              {...provided.draggableProps}
-              {...provided.dragHandleProps}
-              className={`player negro player-${index % numJugadores}`}
-            >
-              {jugador.nombre}
-            </div>
-          )}
-        </Draggable>
-      ))}
-      {provided.placeholder}
-    </div>
-  )}
-</Droppable>
+                <Droppable droppableId="campoNegro" direction="horizontal">
+                  {(provided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                      className="soccer-field negro"
+                    >
+                      {equipoNegro.map((jugador, index) => (
+                        <Draggable
+                          key={jugador._id}
+                          draggableId={jugador._id}
+                          index={index}
+                        >
+                          {(provided) => (
+                            <div
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              className={`player negro player-${
+                                index % numJugadores
+                              }`}
+                            >
+                              {jugador.nombre}
+                            </div>
+                          )}
+                        </Draggable>
+                      ))}
+                      {provided.placeholder}
+                    </div>
+                  )}
+                </Droppable>
               </div>
-              
+
               <div className="team-section">
                 <select
                   id="selectNegro"
