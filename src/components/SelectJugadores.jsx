@@ -123,37 +123,32 @@ export const SelectJugadores = () => {
     setTimeout(() => navigate("/"), 3000);
   };
 
-  const equiposCompletos =
-    equipoBlanco.length === 7 && equipoNegro.length === 7;
+  const equiposCompletos = equipoBlanco.length === 7 && equipoNegro.length === 7;
+
   const onDragEnd = (result) => {
     const { source, destination } = result;
-    console.log(result);
-
-    // Si no hay destino o el elemento se soltó en la misma posición, no hacer nada
-    if (
-      !destination ||
-      (source.droppableId === destination.droppableId &&
-        source.index === destination.index)
-    ) {
+  
+    // Salir si no hay destino o si la posición es la misma
+    if (!destination || (source.index === destination.index && source.droppableId === destination.droppableId)) {
       return;
     }
-
-    // Verifica que el id del Droppable origen corresponda con el equipo correcto
-    if (source.droppableId === "campoBlanco") {
-      // Lógica para reordenar equipoBlanco
-      const newEquipoBlanco = Array.from(equipoBlanco);
-      const [movedItem] = newEquipoBlanco.splice(source.index, 1);
-      newEquipoBlanco.splice(destination.index, 0, movedItem);
-      setEquipoBlanco(newEquipoBlanco);
-    } else if (source.droppableId === "campoNegro") {
-      console.log(source.droppableId);
-      // Lógica para reordenar equipoNegro
-      const newEquipoNegro = Array.from(equipoNegro);
-      const [movedItem] = newEquipoNegro.splice(source.index, 1);
-      newEquipoNegro.splice(destination.index, 0, movedItem);
-      setEquipoNegro(newEquipoNegro);
+  
+    // Inicia con el equipoBlanco o equipoNegro basado en el droppableId
+    let newTeam = source.droppableId === 'campoBlanco' ? Array.from(equipoBlanco) : Array.from(equipoNegro);
+  
+    // Realiza el intercambio de posiciones en el arreglo
+    const [relocatedItem] = newTeam.splice(source.index, 1); // Quita el jugador de su posición original
+    newTeam.splice(destination.index, 0, relocatedItem); // Inserta el jugador en la nueva posición
+  
+    // Actualiza el estado del equipo apropiado basado en el droppableId
+    if (source.droppableId === 'campoBlanco') {
+      setEquipoBlanco(newTeam);
+    } else if (source.droppableId === 'campoNegro') {
+      setEquipoNegro(newTeam);
     }
   };
+  
+  
 
   return (
     <>
