@@ -127,27 +127,42 @@ export const SelectJugadores = () => {
 
   const onDragEnd = (result) => {
     const { source, destination } = result;
-  
-    // Salir si no hay destino o si la posición es la misma
-    if (!destination || (source.index === destination.index && source.droppableId === destination.droppableId)) {
-      return;
+    console.log("Source: ", source);
+    console.log("destination: ", destination);
+
+    // Exit if there is no destination or if the position is the same
+    if (!destination || (source.droppableId === destination.droppableId && source.index === destination.index)) {
+        return;
     }
-  
-    // Inicia con el equipoBlanco o equipoNegro basado en el droppableId
-    let newTeam = source.droppableId === 'campoBlanco' ? Array.from(equipoBlanco) : Array.from(equipoNegro);
-  
-    // Realiza el intercambio de posiciones en el arreglo
-    const [relocatedItem] = newTeam.splice(source.index, 1); // Quita el jugador de su posición original
-    newTeam.splice(destination.index, 0, relocatedItem); // Inserta el jugador en la nueva posición
-  
-    // Actualiza el estado del equipo apropiado basado en el droppableId
+
+    // Start with the correct team array based on the source droppableId
+    const sourceTeam = source.droppableId === 'campoBlanco' ? equipoBlanco : equipoNegro;
+    const destinationTeam = destination.droppableId === 'campoBlanco' ? equipoBlanco : equipoNegro;
+
+    // Create a copy of the teams to manipulate
+    const newSourceTeam = Array.from(sourceTeam);
+    const newDestinationTeam = destination.droppableId === source.droppableId ? newSourceTeam : Array.from(destinationTeam);
+
+    // Perform the item relocation
+    const [relocatedItem] = newSourceTeam.splice(source.index, 1);
+    newDestinationTeam.splice(destination.index, 0, relocatedItem);
+
+    // Update the state of the appropriate team(s) based on the droppableId
     if (source.droppableId === 'campoBlanco') {
-      setEquipoBlanco(newTeam);
-    } else if (source.droppableId === 'campoNegro') {
-      setEquipoNegro(newTeam);
+        setEquipoBlanco(newSourceTeam);
+    } else {
+        setEquipoNegro(newSourceTeam);
     }
-  };
-  
+
+    if (destination.droppableId !== source.droppableId) {
+        if (destination.droppableId === 'campoBlanco') {
+            setEquipoBlanco(newDestinationTeam);
+        } else {
+            setEquipoNegro(newDestinationTeam);
+        }
+    }
+};
+
   
 
   return (
@@ -234,7 +249,7 @@ export const SelectJugadores = () => {
                       {equipoBlanco.map((jugador, index) => (
                         <Draggable
                           key={jugador._id}
-                          draggableId={jugador._id}
+                          draggableId={jugador._id.toString()}
                           index={index}
                         >
                           {(provided) => (
@@ -266,7 +281,7 @@ export const SelectJugadores = () => {
                       {equipoNegro.map((jugador, index) => (
                         <Draggable
                           key={jugador._id}
-                          draggableId={jugador._id}
+                          draggableId={jugador._id.toString()}
                           index={index}
                         >
                           {(provided) => (
