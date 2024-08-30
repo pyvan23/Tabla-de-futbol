@@ -4,7 +4,7 @@ import { MostrarGanador } from "./MostrarGanador";
 import { DayPicker } from "react-day-picker";
 import "./SelectJugadores.css";
 import { useJugadores } from "../hooks/useJugadores.js";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-day-picker/dist/style.css";
@@ -13,8 +13,9 @@ import { es } from "date-fns/locale";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 export const SelectJugadores = () => {
+  
   const { jugadores, anadirPuntosAGanador } = useJugadores();
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const datePickerRef = useRef(); // Crea la referencia aquí para poder usarla en el componente DayPicker
@@ -110,6 +111,7 @@ export const SelectJugadores = () => {
   // Para evitar seleccionar el mismo jugador en ambos equipos,
   // filtramos los jugadores que ya están seleccionados en alguno de los equipos.
   const jugadoresDisponibles = jugadores.filter(
+
     (jugador) =>
       !equipoBlanco.some((blanco) => blanco._id === jugador._id) &&
       !equipoNegro.some((negro) => negro._id === jugador._id)
@@ -120,10 +122,10 @@ export const SelectJugadores = () => {
     setGanador(equipoGanador); // Establece el equipo ganador
     equipoGanador.forEach((jugador) => anadirPuntosAGanador(jugador._id, 3));
     // Navegar a la ruta deseada después de un breve tiempo
-    setTimeout(() => navigate("/"), 3000);
+    //setTimeout(() => navigate("/"), 3000);
   };
 
-  const equiposCompletos = equipoBlanco.length === 7 && equipoNegro.length === 7;
+  //const equiposCompletos = equipoBlanco.length === 7 && equipoNegro.length === 7;
 
   const onDragEnd = (result) => {
     const { source, destination } = result;
@@ -157,13 +159,13 @@ export const SelectJugadores = () => {
     if (destination.droppableId !== source.droppableId) {
         if (destination.droppableId === 'campoBlanco') {
             setEquipoBlanco(newDestinationTeam);
+            
         } else {
             setEquipoNegro(newDestinationTeam);
         }
     }
 };
 
-  
 
   return (
     <>
@@ -342,13 +344,13 @@ export const SelectJugadores = () => {
             <div className="winner-buttons">
               <button
                 onClick={() => handleWin("blanco")}
-                disabled={!equiposCompletos}
+              
               >
                 Equipo Blanco Gana
               </button>
               <button
                 onClick={() => handleWin("negro")}
-                disabled={!equiposCompletos}
+               
               >
                 Equipo Negro Gana
               </button>
