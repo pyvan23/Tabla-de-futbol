@@ -1,10 +1,13 @@
 body {
   background-image: url("https://i0.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2023/01/futbol.jpg?fit=849%2C569&ssl=1");
-  background-size: cover;
+  background-size: cover; /* Asegura que la imagen de fondo cubra toda la pantalla */
   background-position: center center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  height: 100vh; /* Hace que el fondo cubra toda la altura del viewport */
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif; /* Fuente legible en todos los dispositivos */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
 }

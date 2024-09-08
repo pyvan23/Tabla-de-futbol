@@ -35,10 +35,10 @@ console.log(jugadores);
           <div >Loding...</div> {/* Elemento visual para el indicador de carga */}
         </div>
       ) : (
-        <div className="contenedor-tabla">
-        <table>
-          <thead>
-            <tr>
+        <div  >
+        <table className="contenedor-tabla">
+          <thead >
+            <tr className="thead">
               <th className="thead">#</th>
               <th className="thead">JUGADORES</th>
               <th className="thead">PTOS</th>

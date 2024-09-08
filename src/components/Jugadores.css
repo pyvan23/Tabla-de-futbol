@@ -1,77 +1,85 @@
-/* Estilo para las filas de jugadores */
-.jugador-fila {
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.jugador-fila:hover {
-  background-color: #f2f2f2;
-}
-
-/* Estilo de las celdas de la tabla */
-th, td {
-  padding: 12px 10px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-  font-size: 14px;
+.contenedor-tabla {
+  width: 80%; /* Ajusta el ancho de la tabla a un 80% */
+  max-width: 800px; /* Limita el ancho máximo para pantallas más grandes */
+  height: fit-content; /* Ajusta la altura de la tabla según su contenido */
+  max-height: 80vh; /* Limita la altura de la tabla */
+  overflow-y: auto; /* Permite el scroll vertical si la tabla es más grande que el viewport */
+  margin: 0 auto; /* Centra la tabla */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo más visible */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añade un poco de sombra */
 }
 
 table {
-  width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
-  max-width: 800px;
-  margin: 20px auto;
+  width: 100%; /* Asegura que la tabla ocupe el 100% del contenedor */
   border-collapse: collapse;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9);
+  
 }
 
 thead th {
-  background-color: #68ca6c;
+  background-color: #333;
   color: white;
   font-size: 16px;
   letter-spacing: 0.5px;
+  padding: 10px 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Contenedor de la tabla */
-.contenedor-tabla {
-  padding: 20px 0;
-  width: 100%;
-  overflow-x: auto; /* Hacer la tabla scrollable horizontalmente en pantallas pequeñas */
+th, td {
+  padding: 6px;
+  text-align: center;
+  font-size: 14px; /* Ajusta el tamaño de fuente */
+  border-bottom: 1px solid #ddd;
 }
 
-/* Responsividad */
+/* Estilo para las filas clicleables */
+tbody tr {
+  cursor: pointer; /* Cambia el cursor al pasar sobre las filas */
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: #dff0d8; /* Cambia el color de fondo al hacer hover */
+}
+
+tbody tr:hover td {
+  color: #3c763d; /* Cambia el color del texto en hover */
+}
+
+/* Responsividad para pantallas pequeñas */
 @media (max-width: 768px) {
-  table {
-    width: 100%; /* Se asegura que la tabla no se salga de los márgenes en pantallas pequeñas */
-    font-size: 12px; /* Reduce el tamaño del texto para pantallas más pequeñas */
+  .contenedor-tabla {
+    width: 90%; /* Ocupa un 90% del ancho de la pantalla en dispositivos pequeños */
+    padding: 15px;
+    max-height: 75vh; /* Limita la altura para evitar que la tabla ocupe toda la pantalla */
   }
 
-  .contenedor-tabla {
-    padding: 10px 0;
+  table {
+    font-size: 12px; /* Reduce el tamaño de fuente en pantallas pequeñas */
   }
 
   th, td {
-    padding: 8px; /* Reduce el padding para ajustar mejor la tabla en dispositivos pequeños */
+    padding: 6px; /* Reduce el padding para optimizar el espacio en móviles */
   }
 }
 
+/* Mejorando la experiencia móvil */
 @media (max-width: 480px) {
-  body {
-    background-size: cover; /* Ajuste del tamaño de fondo para evitar distorsión */
+  .contenedor-tabla {
+    width: 100%; /* La tabla ocupará todo el ancho disponible */
+    padding: 10px;
   }
 
   table {
-    width: 100%; /* Asegura que la tabla ocupe el 100% del ancho disponible en pantallas pequeñas */
-    font-size: 12px; /* Reduce aún más el tamaño de la fuente para mejorar la visibilidad */
-  }
-
-  .contenedor-tabla {
-    overflow-x: scroll; /* Asegura que en dispositivos muy pequeños la tabla pueda hacer scroll horizontal */
+    font-size: 10px; /* Reduce aún más el tamaño de fuente para mayor legibilidad */
   }
 
   th, td {
-    padding: 6px; /* Reduce el padding para evitar desbordamiento en móviles */
+    padding: 5px; /* Reduce el padding para evitar desbordamiento */
+  }
+
+  thead th {
+    font-size: 12px; /* Reduce el tamaño de la fuente en la cabecera */
   }
 }
